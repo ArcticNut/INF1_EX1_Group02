@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace INF1_EX1_Group02.Classes
 {
+    //Abo
     internal class Building
     {
     }
