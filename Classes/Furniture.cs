@@ -9,33 +9,33 @@ namespace INF1_EX1_Group02.Classes
     internal class Furniture
     {
           // Define Attributes
-  private string type;
-  private int amount;
+          private string type;
+          private int amount;
 
-  // Constructors
-  public Furniture()
-  {
-      type = "";
-      amount = 0;
-  }
-
-  public Furniture(string type, int amount)
-  {
-      this.type = type;
-      this.amount = amount;
-  }
-
-  // Getter and Setter
-  public string Type
-  {
-      get { return type; }
-      set { type = value; }
-  }
-
-  public int Amount
-  {
-      get { return amount; }
-      set { amount = value; }
-  }
+          // Constructors
+          public Furniture()
+          {
+              type = "";
+              amount = 0;
+          }
+        
+          public Furniture(string type, int amount)
+          {
+              this.type = type;
+              this.amount = amount;
+          }
+        
+          // Getter and Setter
+          public string Type
+          {
+              get { return type; }
+              set { type = value; }
+          }
+        
+          public int Amount
+          {
+              get { return amount; }
+              set { amount = value; }
+          }
     }
 }
