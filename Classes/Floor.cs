@@ -8,5 +8,6 @@ namespace INF1_EX1_Group02.Classes
 {
     internal class Floor
     {
+        //hi
     }
 }
