@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace INF1_EX1_Group02.Classes
 {
-    internal class Room
+    public class Room
     {
         //Attributes
         private static int id = 0;
