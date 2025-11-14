@@ -6,5 +6,20 @@ namespace INF1_EX1_Group02
         {
             InitializeComponent();
         }
+
+        private void buttonAddBuilding_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonBuildingDelete_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Main_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
