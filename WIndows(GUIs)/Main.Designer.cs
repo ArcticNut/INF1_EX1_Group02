@@ -43,6 +43,9 @@
             label3 = new Label();
             buttonManageUses = new Button();
             buttonRoomAddFurniture = new Button();
+            labelBuildingSum = new Label();
+            labelFloorSum = new Label();
+            labelRoomSum = new Label();
             SuspendLayout();
             // 
             // listBoxBuildings
@@ -186,11 +189,41 @@
             buttonRoomAddFurniture.Text = "Add Furniture";
             buttonRoomAddFurniture.UseVisualStyleBackColor = true;
             // 
+            // labelBuildingSum
+            // 
+            labelBuildingSum.AutoSize = true;
+            labelBuildingSum.Location = new Point(18, 386);
+            labelBuildingSum.Name = "labelBuildingSum";
+            labelBuildingSum.Size = new Size(133, 20);
+            labelBuildingSum.TabIndex = 15;
+            labelBuildingSum.Text = "Building Summary:";
+            // 
+            // labelFloorSum
+            // 
+            labelFloorSum.AutoSize = true;
+            labelFloorSum.Location = new Point(220, 386);
+            labelFloorSum.Name = "labelFloorSum";
+            labelFloorSum.Size = new Size(112, 20);
+            labelFloorSum.TabIndex = 16;
+            labelFloorSum.Text = "Floor Summary:";
+            // 
+            // labelRoomSum
+            // 
+            labelRoomSum.AutoSize = true;
+            labelRoomSum.Location = new Point(421, 386);
+            labelRoomSum.Name = "labelRoomSum";
+            labelRoomSum.Size = new Size(118, 20);
+            labelRoomSum.TabIndex = 17;
+            labelRoomSum.Text = "Room Summary:";
+            // 
             // Main
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(614, 560);
+            Controls.Add(labelRoomSum);
+            Controls.Add(labelFloorSum);
+            Controls.Add(labelBuildingSum);
             Controls.Add(buttonRoomAddFurniture);
             Controls.Add(buttonManageUses);
             Controls.Add(label3);
@@ -230,5 +263,8 @@
         private Label label3;
         private Button buttonManageUses;
         private Button buttonRoomAddFurniture;
+        private Label labelBuildingSum;
+        private Label labelFloorSum;
+        private Label labelRoomSum;
     }
 }
