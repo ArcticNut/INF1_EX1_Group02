@@ -16,8 +16,16 @@ namespace INF1_EX1_Group02
         {
 
         }
+        private void listBoxBuildings_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
+        }
         private void Main_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelBuildingSum_Click(object sender, EventArgs e)
         {
 
         }

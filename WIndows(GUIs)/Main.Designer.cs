@@ -55,6 +55,7 @@
             listBoxBuildings.Name = "listBoxBuildings";
             listBoxBuildings.Size = new Size(176, 224);
             listBoxBuildings.TabIndex = 0;
+            listBoxBuildings.SelectedIndexChanged += listBoxBuildings_SelectedIndexChanged;
             // 
             // listBoxFloors
             // 
@@ -182,7 +183,7 @@
             // 
             // buttonRoomAddFurniture
             // 
-            buttonRoomAddFurniture.Location = new Point(421, 346);
+            buttonRoomAddFurniture.Location = new Point(421, 343);
             buttonRoomAddFurniture.Name = "buttonRoomAddFurniture";
             buttonRoomAddFurniture.Size = new Size(176, 28);
             buttonRoomAddFurniture.TabIndex = 14;
@@ -192,16 +193,17 @@
             // labelBuildingSum
             // 
             labelBuildingSum.AutoSize = true;
-            labelBuildingSum.Location = new Point(18, 386);
+            labelBuildingSum.Location = new Point(18, 383);
             labelBuildingSum.Name = "labelBuildingSum";
             labelBuildingSum.Size = new Size(133, 20);
             labelBuildingSum.TabIndex = 15;
             labelBuildingSum.Text = "Building Summary:";
+            labelBuildingSum.Click += labelBuildingSum_Click;
             // 
             // labelFloorSum
             // 
             labelFloorSum.AutoSize = true;
-            labelFloorSum.Location = new Point(220, 386);
+            labelFloorSum.Location = new Point(220, 383);
             labelFloorSum.Name = "labelFloorSum";
             labelFloorSum.Size = new Size(112, 20);
             labelFloorSum.TabIndex = 16;
@@ -210,7 +212,7 @@
             // labelRoomSum
             // 
             labelRoomSum.AutoSize = true;
-            labelRoomSum.Location = new Point(421, 386);
+            labelRoomSum.Location = new Point(421, 383);
             labelRoomSum.Name = "labelRoomSum";
             labelRoomSum.Size = new Size(118, 20);
             labelRoomSum.TabIndex = 17;

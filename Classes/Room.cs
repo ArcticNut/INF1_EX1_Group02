@@ -16,20 +16,20 @@ namespace INF1_EX1_Group02.Classes
         private List<Furniture> furnitures;
         private double slabThickness;
         private double slabVol;
-        private double roomCost;
+        private double cost;
         private double load;
 
         //Constructor
-        public Room(int roomNr, double area,  Use use)
+        public Room(int roomNr, double area,  Use use, double slabThickness)
         {
             id = id++;
             this.roomNr = roomNr;
             this.area = area;
             this.use = use;
             this.furnitures = new List<Furniture>();
-            this.slabThickness = 0.2; //as default value 20 cm need to research a refernce
+            this.slabThickness = slabThickness;
             this.slabVol = CalcSlabVol();
-            this.roomCost = CalcRoomCost();
+            this.cost = CalcRoomCost();
             this.load = CalcLoad();
         }
 
@@ -41,7 +41,7 @@ namespace INF1_EX1_Group02.Classes
         public List<Furniture> Furnitures { get { return furnitures; } }
         public double SlabThickness { get { return slabThickness; } set { slabThickness = value; } }
         public double SlabVol { get { return slabVol; } }
-        public double RoomCost { get { return roomCost; } }
+        public double Cost { get { return cost; } }
         public double Load { get { return load; } }
 
         //Methods
