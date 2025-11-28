@@ -1,4 +1,4 @@
-﻿namespace INF1_EX1_Group02.WIndows_GUIs_
+﻿namespace INF1_EX1_Group02.Windows_GUIs_
 {
     partial class UseForm
     {
@@ -28,69 +28,69 @@
         /// </summary>
         private void InitializeComponent()
         {
+            listBoxUses = new ListBox();
             buttonUsesEdit = new Button();
             buttonUsesDelete = new Button();
             buttonUsesAdd = new Button();
-            listBoxUses = new ListBox();
             SuspendLayout();
-            // 
-            // buttonUsesEdit
-            // 
-            buttonUsesEdit.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            buttonUsesEdit.Location = new Point(133, 252);
-            buttonUsesEdit.Name = "buttonUsesEdit";
-            buttonUsesEdit.Size = new Size(55, 29);
-            buttonUsesEdit.TabIndex = 13;
-            buttonUsesEdit.Text = "Edit";
-            buttonUsesEdit.UseVisualStyleBackColor = true;
-            // 
-            // buttonUsesDelete
-            // 
-            buttonUsesDelete.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            buttonUsesDelete.Location = new Point(72, 252);
-            buttonUsesDelete.Name = "buttonUsesDelete";
-            buttonUsesDelete.Size = new Size(55, 29);
-            buttonUsesDelete.TabIndex = 12;
-            buttonUsesDelete.Text = "-";
-            buttonUsesDelete.UseVisualStyleBackColor = true;
-            // 
-            // buttonUsesAdd
-            // 
-            buttonUsesAdd.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            buttonUsesAdd.Location = new Point(11, 252);
-            buttonUsesAdd.Name = "buttonUsesAdd";
-            buttonUsesAdd.Size = new Size(55, 29);
-            buttonUsesAdd.TabIndex = 11;
-            buttonUsesAdd.Text = "+";
-            buttonUsesAdd.UseVisualStyleBackColor = true;
             // 
             // listBoxUses
             // 
             listBoxUses.FormattingEnabled = true;
             listBoxUses.Location = new Point(12, 12);
             listBoxUses.Name = "listBoxUses";
-            listBoxUses.Size = new Size(176, 224);
-            listBoxUses.TabIndex = 10;
+            listBoxUses.Size = new Size(177, 204);
+            listBoxUses.TabIndex = 0;
             // 
-            // Use
+            // buttonUsesEdit
+            // 
+            buttonUsesEdit.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            buttonUsesEdit.Location = new Point(134, 222);
+            buttonUsesEdit.Name = "buttonUsesEdit";
+            buttonUsesEdit.Size = new Size(55, 29);
+            buttonUsesEdit.TabIndex = 12;
+            buttonUsesEdit.Text = "Edit";
+            buttonUsesEdit.UseVisualStyleBackColor = true;
+            // 
+            // buttonUsesDelete
+            // 
+            buttonUsesDelete.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            buttonUsesDelete.Location = new Point(73, 222);
+            buttonUsesDelete.Name = "buttonUsesDelete";
+            buttonUsesDelete.Size = new Size(55, 29);
+            buttonUsesDelete.TabIndex = 11;
+            buttonUsesDelete.Text = "-";
+            buttonUsesDelete.UseVisualStyleBackColor = true;
+            // 
+            // buttonUsesAdd
+            // 
+            buttonUsesAdd.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            buttonUsesAdd.Location = new Point(12, 222);
+            buttonUsesAdd.Name = "buttonUsesAdd";
+            buttonUsesAdd.Size = new Size(55, 29);
+            buttonUsesAdd.TabIndex = 10;
+            buttonUsesAdd.Text = "+";
+            buttonUsesAdd.UseVisualStyleBackColor = true;
+            // 
+            // UseForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(368, 296);
+            ClientSize = new Size(351, 279);
             Controls.Add(buttonUsesEdit);
             Controls.Add(buttonUsesDelete);
             Controls.Add(buttonUsesAdd);
             Controls.Add(listBoxUses);
-            Name = "Use";
-            Text = "Uses";
+            Name = "UseForm";
+            Text = "UseForm";
             ResumeLayout(false);
         }
 
         #endregion
 
+        private ListBox listBoxUses;
         private Button buttonUsesEdit;
         private Button buttonUsesDelete;
         private Button buttonUsesAdd;
-        private ListBox listBoxUses;
     }
 }

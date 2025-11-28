@@ -12,7 +12,7 @@ namespace INF1_EX1_Group02
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Main());
+            Application.Run(new Windows_GUIs_.Main());
         }
     }
 }

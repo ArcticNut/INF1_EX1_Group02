@@ -1,8 +1,8 @@
-﻿namespace INF1_EX1_Group02
+﻿namespace INF1_EX1_Group02.Windows_GUIs_
 {
     partial class Main
     {
-        /// <summary>
+        /// <summary>S
         ///  Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;

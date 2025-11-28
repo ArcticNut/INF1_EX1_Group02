@@ -1,4 +1,4 @@
-namespace INF1_EX1_Group02
+namespace INF1_EX1_Group02.Windows_GUIs_
 {
     public partial class Main : Form
     {
@@ -10,7 +10,7 @@ namespace INF1_EX1_Group02
 
         private void buttonAddBuilding_Click(object sender, EventArgs e)
         {
-            Application.Run(new Building.Building());
+            Application.Run(new BuildingForm());
         }
 
         private void buttonBuildingDelete_Click(object sender, EventArgs e)
