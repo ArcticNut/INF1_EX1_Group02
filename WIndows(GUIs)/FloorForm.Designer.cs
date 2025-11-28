@@ -1,6 +1,6 @@
 ﻿namespace INF1_EX1_Group02.WIndows_GUIs_
 {
-    partial class Floor
+    partial class FloorForm
     {
         /// <summary>
         /// Required designer variable.

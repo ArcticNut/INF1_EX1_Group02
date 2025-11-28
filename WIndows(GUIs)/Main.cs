@@ -5,11 +5,12 @@ namespace INF1_EX1_Group02
         public Main()
         {
             InitializeComponent();
+
         }
 
         private void buttonAddBuilding_Click(object sender, EventArgs e)
         {
-
+            Application.Run(new Building.Building());
         }
 
         private void buttonBuildingDelete_Click(object sender, EventArgs e)

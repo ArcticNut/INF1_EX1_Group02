@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace INF1_EX1_Group02.WIndows_GUIs_
+namespace INF1_EX1_Group02.Windows_GUIs_
 {
-    public partial class Floor : Form
+    public partial class BuildingForm : Form
     {
-        public Floor()
+        public BuildingForm()
         {
             InitializeComponent();
         }

@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace INF1_EX1_Group02.WIndows_GUIs_
 {
-    public partial class Building : Form
+    public partial class UseForm : Form
     {
-        public Building()
+        public UseForm()
         {
             InitializeComponent();
         }
