@@ -39,7 +39,11 @@ namespace INF1_EX1_Group02.Windows_GUIs_
         {
             // read the GUI fields
             string name = textBoxUseName.Text;
-            double qk = double.Parse(textBoxUseQK.Text);
+            try { double qk = double.Parse(textBoxUseQK.Text); }
+            catch
+            {
+                MessageBox.Show("Please enter a valid number for qk.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Error); return;
+            }
 
             // Edit the selected Use or add a new one
             if (useToEdit != null)

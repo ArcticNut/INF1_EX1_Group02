@@ -31,7 +31,7 @@
             labelFurnitureType = new Label();
             labelFurnitureAmount = new Label();
             textBoxFurnitureType = new TextBox();
-            textBoxFurnituteAmount = new TextBox();
+            textBoxFurnitureAmount = new TextBox();
             buttonFurnitureAddOK = new Button();
             SuspendLayout();
             // 
@@ -62,10 +62,10 @@
             // 
             // textBoxFurnituteAmount
             // 
-            textBoxFurnituteAmount.Location = new Point(102, 55);
-            textBoxFurnituteAmount.Name = "textBoxFurnituteAmount";
-            textBoxFurnituteAmount.Size = new Size(187, 27);
-            textBoxFurnituteAmount.TabIndex = 3;
+            textBoxFurnitureAmount.Location = new Point(102, 55);
+            textBoxFurnitureAmount.Name = "textBoxFurnitureAmount";
+            textBoxFurnitureAmount.Size = new Size(187, 27);
+            textBoxFurnitureAmount.TabIndex = 3;
             // 
             // buttonFurnitureAddOK
             // 
@@ -83,7 +83,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(301, 140);
             Controls.Add(buttonFurnitureAddOK);
-            Controls.Add(textBoxFurnituteAmount);
+            Controls.Add(textBoxFurnitureAmount);
             Controls.Add(textBoxFurnitureType);
             Controls.Add(labelFurnitureAmount);
             Controls.Add(labelFurnitureType);
@@ -98,7 +98,7 @@
         private Label labelFurnitureType;
         private Label labelFurnitureAmount;
         private TextBox textBoxFurnitureType;
-        private TextBox textBoxFurnituteAmount;
+        private TextBox textBoxFurnitureAmount;
         private Button buttonFurnitureAddOK;
     }
 }

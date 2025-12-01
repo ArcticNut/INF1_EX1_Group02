@@ -55,8 +55,8 @@ namespace INF1_EX1_Group02.Windows_GUIs_
 
         private void listBoxUses_SelectedIndexChanged(object sender, EventArgs e)
         {
-            try { UpdateUseSum(listBoxUses.SelectedItem as Use); }
-            catch { }
+            if (listBoxUses.SelectedItem != null){ UpdateUseSum(listBoxUses.SelectedItem as Use); }
+            
         }
 
         private void FillUseListBox()
