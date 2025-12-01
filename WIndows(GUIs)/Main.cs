@@ -72,14 +72,19 @@ namespace INF1_EX1_Group02.Windows_GUIs_
 
         private void buttonRoomsEdit_Click(object sender, EventArgs e)
         {
-            if (listBoxFloors.SelectedItem == null) return;
+            if (listBoxFloors.SelectedItem == null)
+            {
+                MessageBox.Show("Please select the floor on which you want to edit a room.", "No Floor Selected", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            
             if (listBoxRooms.SelectedItem == null)
             { 
                 MessageBox.Show("Please select a room to edit.", "No Room Selected", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            Floor selectedFloor = listBoxFloors.SelectedItem as Floor;
+            Floor selectedFloor = listBoxFloors.SelectedItem as Floor;           
             Room selectedRoom = listBoxRooms.SelectedItem as Room;
             new RoomForm(selectedFloor, selectedRoom).ShowDialog();
         }
