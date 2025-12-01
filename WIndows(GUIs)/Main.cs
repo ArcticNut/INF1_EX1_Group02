@@ -12,7 +12,7 @@ namespace INF1_EX1_Group02.Windows_GUIs_
 
         private void buttonAddBuilding_Click(object sender, EventArgs e)
         {
-            Application.Run(new BuildingForm());
+
         }
 
         private void buttonBuildingDelete_Click(object sender, EventArgs e)
@@ -62,10 +62,10 @@ namespace INF1_EX1_Group02.Windows_GUIs_
         private void buttonRoomAddFurniture_Click(object sender, EventArgs e)
         {
 
-        }  
+        }
         private void buttonManageUses_Click(object sender, EventArgs e)
         {
-
+            new UseForm().ShowDialog();
         }
 
         private void FillBuildingListBox()
@@ -93,5 +93,6 @@ namespace INF1_EX1_Group02.Windows_GUIs_
         private void UpdateRoomSum(Room room)
         {
         }
-        
+
     }
+}

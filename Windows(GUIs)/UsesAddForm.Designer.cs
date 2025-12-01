@@ -30,8 +30,8 @@
         {
             labelUseName = new Label();
             labelUseQK = new Label();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
+            textBoxUseName = new TextBox();
+            textBoxUseQK = new TextBox();
             buttonUseAddOK = new Button();
             labelUseQKUnit = new Label();
             SuspendLayout();
@@ -54,19 +54,19 @@
             labelUseQK.TabIndex = 1;
             labelUseQK.Text = "Live Load qK:";
             // 
-            // textBox1
+            // textBoxUseName
             // 
-            textBox1.Location = new Point(128, 15);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(125, 27);
-            textBox1.TabIndex = 2;
+            textBoxUseName.Location = new Point(128, 15);
+            textBoxUseName.Name = "textBoxUseName";
+            textBoxUseName.Size = new Size(125, 27);
+            textBoxUseName.TabIndex = 2;
             // 
-            // textBox2
+            // textBoxUseQK
             // 
-            textBox2.Location = new Point(128, 53);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(125, 27);
-            textBox2.TabIndex = 3;
+            textBoxUseQK.Location = new Point(128, 53);
+            textBoxUseQK.Name = "textBoxUseQK";
+            textBoxUseQK.Size = new Size(125, 27);
+            textBoxUseQK.TabIndex = 3;
             // 
             // buttonUseAddOK
             // 
@@ -94,8 +94,8 @@
             ClientSize = new Size(313, 138);
             Controls.Add(labelUseQKUnit);
             Controls.Add(buttonUseAddOK);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
+            Controls.Add(textBoxUseQK);
+            Controls.Add(textBoxUseName);
             Controls.Add(labelUseQK);
             Controls.Add(labelUseName);
             Name = "UsesAddForm";
@@ -108,8 +108,8 @@
 
         private Label labelUseName;
         private Label labelUseQK;
-        private TextBox textBox1;
-        private TextBox textBox2;
+        private TextBox textBoxUseName;
+        private TextBox textBoxUseQK;
         private Button buttonUseAddOK;
         private Label labelUseQKUnit;
     }

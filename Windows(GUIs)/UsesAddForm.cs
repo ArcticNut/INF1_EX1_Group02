@@ -1,4 +1,5 @@
-﻿using System;
+﻿using INF1_EX1_Group02.Classes;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,18 +8,55 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace INF1_EX1_Group02.Windows_GUIs_
 {
     public partial class UsesAddForm : Form
     {
-        public UsesAddForm()
+        // Make it possible to distinguish between Add and Edit
+        private Use useToEdit;  // null = Add, not null = Edit
+
+        public UsesAddForm(Use use = null)
         {
             InitializeComponent();
+            useToEdit = use;
+
+            if (useToEdit != null)
+            {
+                // Editing: pre-fill fields
+                textBoxUseName.Text = useToEdit.Name;
+                textBoxUseQK.Text = useToEdit.Qk.ToString();
+                Text = "Edit Use";   
+            }
+            else
+            {
+                Text = "Add Use";    
+            }
         }
 
         private void buttonUseAddOK_Click(object sender, EventArgs e)
         {
+            // read the GUI fields
+            string name = textBoxUseName.Text;
+            double qk = double.Parse(textBoxUseQK.Text);
+
+            // Edit the selected Use or add a new one
+            if (useToEdit != null)
+            {
+                // Edit existing Use
+                useToEdit.Name = name;
+                useToEdit.Qk = qk;
+            }
+            else
+            {
+                // Add new Use
+                Use newUse = new Use(name, qk);
+                AppData.Uses.Add(newUse);
+            }
+
+            // Close the form with OK result
+            DialogResult = DialogResult.OK;
 
         }
     }

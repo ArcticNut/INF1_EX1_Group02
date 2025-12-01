@@ -25,11 +25,9 @@ namespace INF1_EX1_Group02.Classes
         public string Name { get { return name; } set { name = value; } }
         public double Qk { get { return qk; } set { qk = value; } }
 
-        // Methods
         public override string ToString()
         {
             return name;
         }
-
     }
 }
