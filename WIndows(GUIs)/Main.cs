@@ -41,7 +41,7 @@ namespace INF1_EX1_Group02.Windows_GUIs_
 
         private void buttonRoomsAdd_Click(object sender, EventArgs e)
         {
-
+           //new RoomForm(Floor floor).ShowDialog();
         }
 
         private void buttonRoomsDelete_Click(object sender, EventArgs e)
