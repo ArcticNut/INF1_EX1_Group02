@@ -46,12 +46,19 @@ namespace INF1_EX1_Group02.Windows_GUIs_
 
         private void buttonRoomsDelete_Click(object sender, EventArgs e)
         {
-
+            if (listBoxRooms.SelectedItem == null) return;
+            Room selectedRoom = listBoxRooms.SelectedItem as Room;
+            if(listBoxFloors.SelectedItem == null) return;
+            Floor selectedFloor = listBoxFloors.SelectedItem as Floor;
+            selectedFloor.Rooms.Remove(selectedRoom);
+            FillRoomListBox(selectedFloor);
         }
 
         private void buttonRoomsEdit_Click(object sender, EventArgs e)
         {
-
+            //if (listBoxRooms.SelectedItem == null) return;
+            // Room selectedRoom = listBoxRooms.SelectedItem as Room;
+            //new RoomForm(selectedRoom).ShowDialog();
         }
 
         private void listBoxRooms_SelectedIndexChanged(object sender, EventArgs e)

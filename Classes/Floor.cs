@@ -59,19 +59,18 @@ namespace INF1_EX1_Group02.Classes
 
 
         // number of rooms on the floor
-        public int GetroomNr()
+        public int CalcNrRooms()
         {
             return rooms.Count();
         }
 
         // total furniture items on this floor 
-        public int Getfurnitures()
+        public int CalcTotFurniture()
         {
 
             int total = 0;
             foreach (Room room in rooms)
             {
-
                 List<Furniture> furnitures = room.Furnitures;
 
                 foreach (Furniture furniture in furnitures)
@@ -83,7 +82,7 @@ namespace INF1_EX1_Group02.Classes
         }
 
         // total slab volume for this floor
-        public double GetTotalslabVolume()
+        public double ClacTotalslabVolume()
         {
             double sum = 0.0;
             foreach (Room room in rooms)
@@ -94,7 +93,7 @@ namespace INF1_EX1_Group02.Classes
         }
 
         // total concrete cost of all rooms on this floor
-        public double GetTotalRoomCost()
+        public double CalcTotalCost()
         {
             double sum = 0.0;
             foreach (Room room in rooms)

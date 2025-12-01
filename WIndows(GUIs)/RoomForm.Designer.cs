@@ -32,12 +32,12 @@
             labelRoomArea = new Label();
             labelRoomUse = new Label();
             labelRoomSlabThick = new Label();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
-            textBox4 = new TextBox();
+            textBoxRoomNr = new TextBox();
+            textBoxRoomArea = new TextBox();
+            textBoxRoomSlabThick = new TextBox();
             labelRoomAreaUnit = new Label();
             labelRoomSlabThickUnit = new Label();
-            comboBox1 = new ComboBox();
+            comboBoxRoomUse = new ComboBox();
             buttonRoomAddOK = new Button();
             SuspendLayout();
             // 
@@ -77,26 +77,26 @@
             labelRoomSlabThick.TabIndex = 3;
             labelRoomSlabThick.Text = "Slab \nThickness:";
             // 
-            // textBox1
+            // textBoxRoomNr
             // 
-            textBox1.Location = new Point(115, 22);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(125, 27);
-            textBox1.TabIndex = 4;
+            textBoxRoomNr.Location = new Point(115, 22);
+            textBoxRoomNr.Name = "textBoxRoomNr";
+            textBoxRoomNr.Size = new Size(125, 27);
+            textBoxRoomNr.TabIndex = 4;
             // 
-            // textBox2
+            // textBoxRoomArea
             // 
-            textBox2.Location = new Point(115, 63);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(125, 27);
-            textBox2.TabIndex = 5;
+            textBoxRoomArea.Location = new Point(115, 63);
+            textBoxRoomArea.Name = "textBoxRoomArea";
+            textBoxRoomArea.Size = new Size(125, 27);
+            textBoxRoomArea.TabIndex = 5;
             // 
-            // textBox4
+            // textBoxRoomSlabThick
             // 
-            textBox4.Location = new Point(115, 149);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(125, 27);
-            textBox4.TabIndex = 7;
+            textBoxRoomSlabThick.Location = new Point(115, 149);
+            textBoxRoomSlabThick.Name = "textBoxRoomSlabThick";
+            textBoxRoomSlabThick.Size = new Size(125, 27);
+            textBoxRoomSlabThick.TabIndex = 7;
             // 
             // labelRoomAreaUnit
             // 
@@ -116,13 +116,13 @@
             labelRoomSlabThickUnit.TabIndex = 9;
             labelRoomSlabThickUnit.Text = "m";
             // 
-            // comboBox1
+            // comboBoxRoomUse
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(115, 109);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(125, 28);
-            comboBox1.TabIndex = 10;
+            comboBoxRoomUse.FormattingEnabled = true;
+            comboBoxRoomUse.Location = new Point(115, 109);
+            comboBoxRoomUse.Name = "comboBoxRoomUse";
+            comboBoxRoomUse.Size = new Size(125, 28);
+            comboBoxRoomUse.TabIndex = 10;
             // 
             // buttonRoomAddOK
             // 
@@ -140,12 +140,12 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(297, 242);
             Controls.Add(buttonRoomAddOK);
-            Controls.Add(comboBox1);
+            Controls.Add(comboBoxRoomUse);
             Controls.Add(labelRoomSlabThickUnit);
             Controls.Add(labelRoomAreaUnit);
-            Controls.Add(textBox4);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
+            Controls.Add(textBoxRoomSlabThick);
+            Controls.Add(textBoxRoomArea);
+            Controls.Add(textBoxRoomNr);
             Controls.Add(labelRoomSlabThick);
             Controls.Add(labelRoomUse);
             Controls.Add(labelRoomArea);
@@ -162,12 +162,12 @@
         private Label labelRoomArea;
         private Label labelRoomUse;
         private Label labelRoomSlabThick;
-        private TextBox textBox1;
-        private TextBox textBox2;
-        private TextBox textBox4;
+        private TextBox textBoxRoomNr;
+        private TextBox textBoxRoomArea;
+        private TextBox textBoxRoomSlabThick;
         private Label labelRoomAreaUnit;
         private Label labelRoomSlabThickUnit;
-        private ComboBox comboBox1;
+        private ComboBox comboBoxRoomUse;
         private Button buttonRoomAddOK;
     }
 }

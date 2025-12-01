@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace INF1_EX1_Group02.Classes
 {
-    internal class Building
-    {// -------------------------
+    public class Building
+    {
+        // -------------------------
         // Define Attributes
         // -------------------------
         private string name;
@@ -23,17 +24,6 @@ namespace INF1_EX1_Group02.Classes
         // -------------------------
         // Constructors
         // -------------------------
-        public Building()
-        {
-            name = "";
-            area = 0.0;
-            totFurniture = 0;
-            totCost = 0.0;
-            height = 0.0;
-
-            floors = new List<Floor>();
-        }
-
         public Building(string name, double area)
         {
             this.name = name;
@@ -81,23 +71,8 @@ namespace INF1_EX1_Group02.Classes
             get { return floors; }
         }
 
-
         // -------------------------
-        // Methods for managing Floors
-        // -------------------------
-        public void AddFloor(Floor floor)
-        {
-            floors.Add(floor);
-        }
-
-        public void RemoveFloor(Floor floor)
-        {
-            floors.Remove(floor);
-        }
-
-
-        // -------------------------
-        // Methods required by UML
+        // Methods 
         // -------------------------
         public void totalFurniture()
         {
@@ -105,15 +80,9 @@ namespace INF1_EX1_Group02.Classes
 
             foreach (Floor floor in floors)
             {
-                foreach (Room room in floor.Rooms)
-                {
-                    foreach (Furniture f in room.Furnitures)
-                    {
-                        sum += f.Amount;
-                    }
-                }
+                sum += floor.CalcTotFurniture();
             }
-
+            
             totFurniture = sum;
         }
 
@@ -123,10 +92,7 @@ namespace INF1_EX1_Group02.Classes
 
             foreach (Floor floor in floors)
             {
-                foreach (Room room in floor.Rooms)
-                {
-                    sum += room.Cost;
-                }
+                sum += floor.CalcTotalCost();
             }
 
             totCost = sum;
@@ -135,7 +101,7 @@ namespace INF1_EX1_Group02.Classes
         public void totalHeight()
         {
             double sum = 0.0;
-
+            //slabthickness?
             foreach (Floor floor in floors)
             {
                 sum += floor.Height;
