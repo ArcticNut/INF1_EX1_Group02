@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace INF1_EX1_Group02.Windows_GUIs_
 {
-    public partial class FloorForm : Form
+    public partial class UsesAddForm : Form
     {
-        public FloorForm()
+        public UsesAddForm()
         {
             InitializeComponent();
+        }
+
+        private void buttonUseAddOK_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

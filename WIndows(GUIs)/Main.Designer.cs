@@ -64,6 +64,7 @@
             listBoxFloors.Name = "listBoxFloors";
             listBoxFloors.Size = new Size(176, 224);
             listBoxFloors.TabIndex = 1;
+            listBoxFloors.SelectedIndexChanged += listBoxFloors_SelectedIndexChanged;
             // 
             // listBoxRooms
             // 
@@ -72,6 +73,7 @@
             listBoxRooms.Name = "listBoxRooms";
             listBoxRooms.Size = new Size(176, 224);
             listBoxRooms.TabIndex = 2;
+            listBoxRooms.SelectedIndexChanged += listBoxRooms_SelectedIndexChanged;
             // 
             // buttonBuildingAdd
             // 
@@ -104,6 +106,7 @@
             buttonFloorsDelete.TabIndex = 6;
             buttonFloorsDelete.Text = "-";
             buttonFloorsDelete.UseVisualStyleBackColor = true;
+            buttonFloorsDelete.Click += buttonFloorsDelete_Click;
             // 
             // buttonFloorsAdd
             // 
@@ -114,6 +117,7 @@
             buttonFloorsAdd.TabIndex = 5;
             buttonFloorsAdd.Text = "+";
             buttonFloorsAdd.UseVisualStyleBackColor = true;
+            buttonFloorsAdd.Click += buttonFloorsAdd_Click;
             // 
             // buttonRoomsDelete
             // 
@@ -124,6 +128,7 @@
             buttonRoomsDelete.TabIndex = 8;
             buttonRoomsDelete.Text = "-";
             buttonRoomsDelete.UseVisualStyleBackColor = true;
+            buttonRoomsDelete.Click += buttonRoomsDelete_Click;
             // 
             // buttonRoomsAdd
             // 
@@ -134,6 +139,7 @@
             buttonRoomsAdd.TabIndex = 7;
             buttonRoomsAdd.Text = "+";
             buttonRoomsAdd.UseVisualStyleBackColor = true;
+            buttonRoomsAdd.Click += buttonRoomsAdd_Click;
             // 
             // buttonRoomsEdit
             // 
@@ -144,6 +150,7 @@
             buttonRoomsEdit.TabIndex = 9;
             buttonRoomsEdit.Text = "Edit";
             buttonRoomsEdit.UseVisualStyleBackColor = true;
+            buttonRoomsEdit.Click += buttonRoomsEdit_Click;
             // 
             // label1
             // 
@@ -180,6 +187,7 @@
             buttonManageUses.TabIndex = 13;
             buttonManageUses.Text = "Manage Uses";
             buttonManageUses.UseVisualStyleBackColor = true;
+            buttonManageUses.Click += buttonManageUses_Click;
             // 
             // buttonRoomAddFurniture
             // 
@@ -189,6 +197,7 @@
             buttonRoomAddFurniture.TabIndex = 14;
             buttonRoomAddFurniture.Text = "Add Furniture";
             buttonRoomAddFurniture.UseVisualStyleBackColor = true;
+            buttonRoomAddFurniture.Click += buttonRoomAddFurniture_Click;
             // 
             // labelBuildingSum
             // 
@@ -198,7 +207,6 @@
             labelBuildingSum.Size = new Size(133, 20);
             labelBuildingSum.TabIndex = 15;
             labelBuildingSum.Text = "Building Summary:";
-            labelBuildingSum.Click += labelBuildingSum_Click;
             // 
             // labelFloorSum
             // 
@@ -242,8 +250,7 @@
             Controls.Add(listBoxFloors);
             Controls.Add(listBoxBuildings);
             Name = "Main";
-            Text = "Form1";
-            Load += Main_Load;
+            Text = "Building Planning Tool";
             ResumeLayout(false);
             PerformLayout();
         }

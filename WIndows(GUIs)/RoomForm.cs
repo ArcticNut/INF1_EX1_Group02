@@ -16,5 +16,10 @@ namespace INF1_EX1_Group02.Windows_GUIs_
         {
             InitializeComponent();
         }
+
+        private void buttonRoomAddOK_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

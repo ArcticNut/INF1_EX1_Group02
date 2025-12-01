@@ -10,18 +10,16 @@ using System.Windows.Forms;
 
 namespace INF1_EX1_Group02.Windows_GUIs_
 {
-    public partial class BuildingForm : Form
+    public partial class FurnitureForm : Form
     {
-        public BuildingForm()
+        public FurnitureForm()
         {
             InitializeComponent();
         }
 
-    
-        private void buttonBuildingAddOK_Click(object sender, EventArgs e)
+        private void buttonFurnitureAddOK_Click(object sender, EventArgs e)
         {
 
         }
     }
 }
-S

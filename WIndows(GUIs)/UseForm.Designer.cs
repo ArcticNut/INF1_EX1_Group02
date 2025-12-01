@@ -32,6 +32,7 @@
             buttonUsesEdit = new Button();
             buttonUsesDelete = new Button();
             buttonUsesAdd = new Button();
+            labelUseSum = new Label();
             SuspendLayout();
             // 
             // listBoxUses
@@ -41,6 +42,7 @@
             listBoxUses.Name = "listBoxUses";
             listBoxUses.Size = new Size(177, 204);
             listBoxUses.TabIndex = 0;
+            listBoxUses.SelectedIndexChanged += listBoxUses_SelectedIndexChanged;
             // 
             // buttonUsesEdit
             // 
@@ -51,6 +53,7 @@
             buttonUsesEdit.TabIndex = 12;
             buttonUsesEdit.Text = "Edit";
             buttonUsesEdit.UseVisualStyleBackColor = true;
+            buttonUsesEdit.Click += buttonUsesEdit_Click;
             // 
             // buttonUsesDelete
             // 
@@ -61,6 +64,7 @@
             buttonUsesDelete.TabIndex = 11;
             buttonUsesDelete.Text = "-";
             buttonUsesDelete.UseVisualStyleBackColor = true;
+            buttonUsesDelete.Click += buttonUsesDelete_Click;
             // 
             // buttonUsesAdd
             // 
@@ -71,12 +75,23 @@
             buttonUsesAdd.TabIndex = 10;
             buttonUsesAdd.Text = "+";
             buttonUsesAdd.UseVisualStyleBackColor = true;
+            buttonUsesAdd.Click += buttonUsesAdd_Click;
+            // 
+            // labelUseSum
+            // 
+            labelUseSum.AutoSize = true;
+            labelUseSum.Location = new Point(195, 27);
+            labelUseSum.Name = "labelUseSum";
+            labelUseSum.Size = new Size(154, 60);
+            labelUseSum.TabIndex = 13;
+            labelUseSum.Text = "Use Information: \nName: -\nLive Load qK: - kN/m²";
             // 
             // UseForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(351, 279);
+            ClientSize = new Size(394, 267);
+            Controls.Add(labelUseSum);
             Controls.Add(buttonUsesEdit);
             Controls.Add(buttonUsesDelete);
             Controls.Add(buttonUsesAdd);
@@ -84,6 +99,7 @@
             Name = "UseForm";
             Text = "UseForm";
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -92,5 +108,6 @@
         private Button buttonUsesEdit;
         private Button buttonUsesDelete;
         private Button buttonUsesAdd;
+        private Label labelUseSum;
     }
 }
