@@ -31,16 +31,16 @@ namespace INF1_EX1_Group02.Windows_GUIs_
             try 
             { 
                 amount = int.Parse(textBoxFurnitureAmount.Text);
-                newFurniture = new Furniture(type, amount);
             }
-            catch {
+            catch
+            {
                 MessageBox.Show("Please enter a whole number for amount", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Error); return;
-            }
-                    
-           
-
+            } 
             
+            newFurniture = new Furniture(type, amount);
 
+            //add furniture to room
+            room.Furnitures.Add(newFurniture);
 
         }
     }

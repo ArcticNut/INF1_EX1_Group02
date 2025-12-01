@@ -41,24 +41,47 @@ namespace INF1_EX1_Group02.Windows_GUIs_
 
         private void buttonRoomsAdd_Click(object sender, EventArgs e)
         {
-           //new RoomForm(Floor floor).ShowDialog();
+            if (listBoxFloors.SelectedItem == null)
+            {
+                MessageBox.Show("Please select the floor to which you want to add a room.", "No Floor Selected", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            Floor selectedFloor = listBoxFloors.SelectedItem as Floor;
+            new RoomForm(selectedFloor).ShowDialog();
         }
 
         private void buttonRoomsDelete_Click(object sender, EventArgs e)
         {
-            if (listBoxRooms.SelectedItem == null) return;
-            Room selectedRoom = listBoxRooms.SelectedItem as Room;
-            if(listBoxFloors.SelectedItem == null) return;
+            if (listBoxFloors.SelectedItem == null)
+            {
+                MessageBox.Show("Please select the floor from which you want to delte a room.", "No Floor Selected", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
             Floor selectedFloor = listBoxFloors.SelectedItem as Floor;
+
+            if (listBoxRooms.SelectedItem == null) 
+            {
+                MessageBox.Show("Please select a room to delete.", "No Room Selected", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return; 
+            }
+            
+            Room selectedRoom = listBoxRooms.SelectedItem as Room;
             selectedFloor.Rooms.Remove(selectedRoom);
             FillRoomListBox(selectedFloor);
         }
 
         private void buttonRoomsEdit_Click(object sender, EventArgs e)
         {
-            //if (listBoxRooms.SelectedItem == null) return;
-            // Room selectedRoom = listBoxRooms.SelectedItem as Room;
-            //new RoomForm(selectedRoom).ShowDialog();
+            if (listBoxFloors.SelectedItem == null) return;
+            if (listBoxRooms.SelectedItem == null)
+            { 
+                MessageBox.Show("Please select a room to edit.", "No Room Selected", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            Floor selectedFloor = listBoxFloors.SelectedItem as Floor;
+            Room selectedRoom = listBoxRooms.SelectedItem as Room;
+            new RoomForm(selectedFloor, selectedRoom).ShowDialog();
         }
 
         private void listBoxRooms_SelectedIndexChanged(object sender, EventArgs e)
@@ -76,6 +99,10 @@ namespace INF1_EX1_Group02.Windows_GUIs_
             if (selectedRoom != null)
             {
                 new FurnitureForm(selectedRoom).ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Please select a room to add furniture to.", "No Room Selected", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
         private void buttonManageUses_Click(object sender, EventArgs e)
@@ -96,10 +123,10 @@ namespace INF1_EX1_Group02.Windows_GUIs_
         {
             listBoxRooms.Items.Clear();
             // add all rooms of the Floor to the listBox
-            //foreach(Room room in floor.Rooms)
-            //{
-            //    listBoxRooms.Items.Add(room);
-            //}
+            foreach(Room room in floor.Rooms)
+            {
+                listBoxRooms.Items.Add(room);
+            }
         }
 
         private void UpdateBuildingSum(BuildingForm building)

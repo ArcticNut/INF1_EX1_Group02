@@ -10,7 +10,7 @@ namespace INF1_EX1_Group02.Classes
     {
         //Attributes
         private static int id = 0;
-        private int roomNr;
+        private string roomNr;
         private double area;
         private Use use;
         private List<Furniture> furnitures;
@@ -20,7 +20,7 @@ namespace INF1_EX1_Group02.Classes
         private double load;
 
         //Constructor
-        public Room(int roomNr, double area,  Use use, double slabThickness)
+        public Room(string roomNr, double area,  Use use, double slabThickness)
         {
             id = id++;
             this.roomNr = roomNr;
@@ -35,7 +35,7 @@ namespace INF1_EX1_Group02.Classes
 
         //Getters and Setters
         public int Id { get { return id; } }
-        public int RoomNr { get { return roomNr; } set { roomNr = value; } }
+        public string RoomNr { get { return roomNr; } set { roomNr = value; } }
         public double Area { get { return area; } set { area = value; } }
         public Use Use { get { return use; } set { use = value; } }
         public List<Furniture> Furnitures { get { return furnitures; } }
