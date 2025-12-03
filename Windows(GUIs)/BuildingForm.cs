@@ -25,14 +25,14 @@ namespace INF1_EX1_Group02.Windows_GUIs_
 
             if (string.IsNullOrWhiteSpace(name))
             {
-                MessageBox.Show("Please enter a building name.");
+                MessageBox.Show("Please enter a building name.", "Error",MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
             double area;
             if (!double.TryParse(areaText, out area) || area <= 0)
             {
-                MessageBox.Show("Please enter a valid area (> 0).");
+                MessageBox.Show("Please enter a valid area. \narea must be positve.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
