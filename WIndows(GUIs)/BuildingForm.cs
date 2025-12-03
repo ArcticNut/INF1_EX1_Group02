@@ -13,12 +13,9 @@ namespace INF1_EX1_Group02.Windows_GUIs_
 {
     public partial class BuildingForm : Form
     {
-        private Main mainForm;   // reference to Main window
-
-        public BuildingForm(Main mainForm)
+        public BuildingForm()
         {
             InitializeComponent();
-            this.mainForm = mainForm;
         }
 
         private void buttonBuildingAddOK_Click(object sender, EventArgs e)
@@ -41,8 +38,6 @@ namespace INF1_EX1_Group02.Windows_GUIs_
 
             Building newBuilding = new Building(name, area);
             AppData.Buildings.Add(newBuilding);
-
-            mainForm.FillBuildingListBox();
 
             this.Close();
         }

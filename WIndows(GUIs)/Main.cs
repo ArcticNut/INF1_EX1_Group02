@@ -12,9 +12,9 @@ namespace INF1_EX1_Group02.Windows_GUIs_
 
         private void buttonAddBuilding_Click(object sender, EventArgs e)
         {
-            // pass "this" (Main) so the BuildingForm can call FillBuildingListBox()
-            BuildingForm form = new BuildingForm(this);
+            BuildingForm form = new BuildingForm();
             form.ShowDialog();
+            FillBuildingListBox();
         }
 
         private void buttonBuildingDelete_Click(object sender, EventArgs e)
@@ -210,6 +210,16 @@ namespace INF1_EX1_Group02.Windows_GUIs_
 
         private void UpdateRoomSum(Room room)
         {
+            if (room == null)
+            {
+                labelRoomSum.Text = "Room Summary:";
+                return;
+            }
+
+            room.CalcLoad();
+            room.CalcRoomCost();
+            room.CalcSlabVol();
+
             string summary = "Room Summary:\n" +
                 $"Room Nr.: {room.RoomNr}\n" +
                 $"Area: {room.Area.ToString()} m²\n" +

@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 namespace INF1_EX1_Group02.Windows_GUIs_
 {
@@ -24,19 +25,23 @@ namespace INF1_EX1_Group02.Windows_GUIs_
         private void buttonFurnitureAddOK_Click(object sender, EventArgs e)
         {
             //read GUI input
-            string type = textBoxFurnitureType.Text;
+            string type = textBoxFurnitureType.Text.Trim();
+            string amountText = textBoxFurnitureAmount.Text.Trim();
             int amount;
             Furniture newFurniture;
 
-            try 
-            { 
-                amount = int.Parse(textBoxFurnitureAmount.Text);
-            }
-            catch
+            if (string.IsNullOrWhiteSpace(type))
             {
-                MessageBox.Show("Please enter a whole number for amount", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Error); return;
-            } 
-            
+                MessageBox.Show("Please enter a furniture type.");
+                return;
+            }
+
+            if (!int.TryParse(amountText, out amount) || amount <= 0)
+            {
+                MessageBox.Show("Please enter a valid amount (> 0).");
+                return;
+            }
+
             newFurniture = new Furniture(type, amount);
 
             //add furniture to room

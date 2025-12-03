@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 namespace INF1_EX1_Group02.Windows_GUIs_
 {
@@ -15,8 +16,8 @@ namespace INF1_EX1_Group02.Windows_GUIs_
     {
         // Make it possible to distinguish between Add and Edit
         private Room roomToEdit; // null = Add, not null = Edit
-
         private Floor floor;
+
         public RoomForm(Floor floor, Room room = null)
         {
             InitializeComponent();
@@ -51,13 +52,24 @@ namespace INF1_EX1_Group02.Windows_GUIs_
         private void buttonRoomAddOK_Click(object sender, EventArgs e)
         {
             //read GUI input
-            string roomNr = textBoxRoomNr.Text;
+            string roomNr = textBoxRoomNr.Text.Trim();
+            string areaText = textBoxRoomArea.Text.Trim();
             double area;
             Use use;
+            string slabThicknessText = textBoxRoomSlabThick.Text.Trim();
             double slabThickness;
 
-            try { area = int.Parse(textBoxRoomArea.Text); }
-            catch { MessageBox.Show("Area must be a number."); return; }
+            if (string.IsNullOrWhiteSpace(roomNr))
+            {
+                MessageBox.Show("Please enter a Room Number.");
+                return;
+            }
+
+            if (!double.TryParse(areaText, out area) || area <= 0)
+            {
+                MessageBox.Show("Please enter a valid area (> 0).");
+                return;
+            }
 
             if (comboBoxRoomUse.SelectedItem == null)
             {
@@ -69,8 +81,11 @@ namespace INF1_EX1_Group02.Windows_GUIs_
                 use = (Use)comboBoxRoomUse.SelectedItem;
             }
 
-            try { slabThickness = double.Parse(textBoxRoomSlabThick.Text); }
-            catch { MessageBox.Show("Slab Thickness must be a number."); return; }
+            if (!double.TryParse(slabThicknessText, out slabThickness) || slabThickness <= 0)
+            {
+                MessageBox.Show("Please enter a valid valid (> 0).");
+                return;
+            }
 
             if (roomToEdit != null)
             {
@@ -86,6 +101,9 @@ namespace INF1_EX1_Group02.Windows_GUIs_
                 Room newRoom = new Room(roomNr, area, use, slabThickness);
                 floor.AddRoom(newRoom);
             }
+
+            // Close the form with OK result
+            DialogResult = DialogResult.OK;
 
         }
     }

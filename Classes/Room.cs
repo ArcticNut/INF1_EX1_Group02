@@ -31,9 +31,9 @@ namespace INF1_EX1_Group02.Classes
             this.use = use;
             this.furnitures = new List<Furniture>();
             this.slabThickness = slabThickness;
-            this.slabVol = CalcSlabVol();
-            this.cost = CalcRoomCost();
-            this.load = CalcLoad();
+            CalcSlabVol();
+            CalcRoomCost();
+            CalcLoad();
         }
 
         //Getters and Setters
@@ -48,19 +48,20 @@ namespace INF1_EX1_Group02.Classes
         public double Load { get { return load; } }
 
         //Methods
-        public double CalcSlabVol()
+        public void CalcSlabVol()
         {
-            return area * slabThickness;
+            slabVol = area * slabThickness;
         }
-        public double CalcRoomCost()
+        public void CalcRoomCost()
         {
             double costPerCubicMeter = 150; //assumed cost per cubic meter of concrete need to research a refernce
-            return slabVol * costPerCubicMeter;
+            CalcSlabVol();
+            cost = slabVol * costPerCubicMeter;
         }
-        public double CalcLoad()
+        public void CalcLoad()
         {
             double gk = 8; // kN/m²
-            return 1.35 * gk + 1.5 * use.Qk;
+            load = 1.35 * gk + 1.5 * use.Qk;
         }
     }
 }

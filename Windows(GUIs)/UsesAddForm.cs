@@ -38,12 +38,20 @@ namespace INF1_EX1_Group02.Windows_GUIs_
         private void buttonUseAddOK_Click(object sender, EventArgs e)
         {
             // read the GUI fields
-            string name = textBoxUseName.Text;
+            string name = textBoxUseName.Text.Trim();
+            string qkText = textBoxUseQK.Text.Trim();
             double qk;
-            try { qk = double.Parse(textBoxUseQK.Text); }
-            catch
+
+            if (string.IsNullOrWhiteSpace(name))
             {
-                MessageBox.Show("Please enter a valid number for qk.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Error); return;
+                MessageBox.Show("Please enter a use name.");
+                return;
+            }
+
+            if (!double.TryParse(qkText, out qk) || qk <= 0)
+            {
+                MessageBox.Show("Please enter a valid live load (> 0).");
+                return;
             }
 
             // Edit the selected Use or add a new one
