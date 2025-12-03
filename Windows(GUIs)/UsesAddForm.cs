@@ -44,13 +44,13 @@ namespace INF1_EX1_Group02.Windows_GUIs_
 
             if (string.IsNullOrWhiteSpace(name))
             {
-                MessageBox.Show("Please enter a use name.");
+                MessageBox.Show("Please enter a use name.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
             if (!double.TryParse(qkText, out qk) || qk <= 0)
             {
-                MessageBox.Show("Please enter a valid live load (> 0).");
+                MessageBox.Show("Please enter a valid live load \nlive load must be positve.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 

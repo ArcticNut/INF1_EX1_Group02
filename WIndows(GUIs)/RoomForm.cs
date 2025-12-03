@@ -61,19 +61,19 @@ namespace INF1_EX1_Group02.Windows_GUIs_
 
             if (string.IsNullOrWhiteSpace(roomNr))
             {
-                MessageBox.Show("Please enter a Room Number.");
+                MessageBox.Show("Please enter a Room Number.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
             if (!double.TryParse(areaText, out area) || area <= 0)
             {
-                MessageBox.Show("Please enter a valid area (> 0).");
+                MessageBox.Show("Please enter a valid area. \narea must be positive", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
             if (comboBoxRoomUse.SelectedItem == null)
             {
-                MessageBox.Show("Please select a Use for the Room.");
+                MessageBox.Show("Please select a Use for the Room.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             else
@@ -83,7 +83,7 @@ namespace INF1_EX1_Group02.Windows_GUIs_
 
             if (!double.TryParse(slabThicknessText, out slabThickness) || slabThickness <= 0)
             {
-                MessageBox.Show("Please enter a valid valid (> 0).");
+                MessageBox.Show("Please enter a valid Slab Thickness. \nSlab Thickness must be positive", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 

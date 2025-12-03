@@ -32,13 +32,13 @@ namespace INF1_EX1_Group02.Windows_GUIs_
 
             if (string.IsNullOrWhiteSpace(type))
             {
-                MessageBox.Show("Please enter a furniture type.");
+                MessageBox.Show("Please enter a furniture type.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
             if (!int.TryParse(amountText, out amount) || amount <= 0)
             {
-                MessageBox.Show("Please enter a valid amount (> 0).");
+                MessageBox.Show("Please enter a valid amount.\namount must be positve.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
