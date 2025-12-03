@@ -38,11 +38,11 @@
             // 
             // button1
             // 
-            button1.Location = new Point(254, 145);
-            button1.Name = "button1";
+            button1.Location = new Point(269, 167);
+            button1.Name = "buttonFloorAdd";
             button1.Size = new Size(75, 23);
             button1.TabIndex = 0;
-            button1.Text = "save";
+            button1.Text = "add";
             button1.UseVisualStyleBackColor = true;
             // 
             // label1
@@ -50,9 +50,9 @@
             label1.AutoSize = true;
             label1.Location = new Point(54, 62);
             label1.Name = "label1";
-            label1.Size = new Size(87, 15);
+            label1.Size = new Size(70, 15);
             label1.TabIndex = 1;
-            label1.Text = "Floor Number: ";
+            label1.Text = "Floor Level: ";
             // 
             // label2
             // 
