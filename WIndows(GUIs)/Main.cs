@@ -53,16 +53,12 @@ namespace INF1_EX1_Group02.Windows_GUIs_
         
         private void listBoxBuildings_SelectedIndexChanged(object sender, EventArgs e)
         {
-            // 1) Get currently selected building
             Building selectedBuilding = listBoxBuildings.SelectedItem as Building;
 
             if (selectedBuilding == null)
                 return;
 
-            // 2) Load floors for this building
             FillFloorListBox(selectedBuilding);
-
-            // 3) Update building summary
             UpdateBuildingSum(selectedBuilding);
         }
 
@@ -108,6 +104,14 @@ namespace INF1_EX1_Group02.Windows_GUIs_
             }
             
             Room selectedRoom = listBoxRooms.SelectedItem as Room;
+            
+            string message = $"Are you sure you want to delete the selected room: {selectedRoom} ?";
+            DialogResult result = MessageBox.Show(message, "Confirm Deletion", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+            if (result == DialogResult.No)
+            {
+                return;
+            }
             selectedFloor.Rooms.Remove(selectedRoom);
             FillRoomListBox(selectedFloor);
         }
@@ -190,16 +194,16 @@ namespace INF1_EX1_Group02.Windows_GUIs_
                 return;
             }
 
-            // 1) Recalculate totals
+            // Recalculate totals
             building.totalCost();
             building.totalFurniture();
 
-            // 2) Build the summary text
+            // Build the summary text
             string summary = "Building Summary:\n" +
                              $"Total Cost: {building.TotCost} €\n" +
                              $"Total Amount of Furniture: {building.TotFurniture}";
 
-            // 3) Show it in the label
+            // Show it in the label
             labelBuildingSum.Text = summary;
 
         }
