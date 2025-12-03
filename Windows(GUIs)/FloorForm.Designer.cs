@@ -28,18 +28,32 @@
         /// </summary>
         private void InitializeComponent()
         {
+            button1 = new Button();
             SuspendLayout();
+            // 
+            // button1
+            // 
+            button1.Location = new Point(96, 77);
+            button1.Name = "button1";
+            button1.Size = new Size(75, 23);
+            button1.TabIndex = 0;
+            button1.Text = "button1";
+            button1.UseVisualStyleBackColor = true;
             // 
             // FloorForm
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(555, 358);
+            ClientSize = new Size(486, 268);
+            Controls.Add(button1);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "FloorForm";
             Text = "FloorForm";
             ResumeLayout(false);
         }
 
         #endregion
+
+        private Button button1;
     }
 }
