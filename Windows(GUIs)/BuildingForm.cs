@@ -42,5 +42,4 @@ namespace INF1_EX1_Group02.Windows_GUIs_
             this.Close();
         }
     }
-    
 }

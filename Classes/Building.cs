@@ -118,5 +118,10 @@ namespace INF1_EX1_Group02.Classes
             height = sum;
         }
 
+        public override string ToString()
+        {
+            return name;
+        }
+
     }
 }
