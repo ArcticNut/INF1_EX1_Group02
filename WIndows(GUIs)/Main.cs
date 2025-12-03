@@ -23,7 +23,7 @@ namespace INF1_EX1_Group02.Windows_GUIs_
 
             if (selectedBuilding == null)
             {
-                MessageBox.Show("Please select a building to delete.", "No Building Selected", , MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Please select a building to delete.", "No Building Selected", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
