@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace INF1_EX1_Group02.Classes
 {
-    internal class Floor
+    //Nida
+    public class Floor
     {
+        
     }
 }
