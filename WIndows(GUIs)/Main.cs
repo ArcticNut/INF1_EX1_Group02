@@ -12,16 +12,58 @@ namespace INF1_EX1_Group02.Windows_GUIs_
 
         private void buttonAddBuilding_Click(object sender, EventArgs e)
         {
-
+            // pass "this" (Main) so the BuildingForm can call FillBuildingListBox()
+            BuildingForm form = new BuildingForm(this);
+            form.ShowDialog();
         }
 
         private void buttonBuildingDelete_Click(object sender, EventArgs e)
         {
+            Building selectedBuilding = listBoxBuildings.SelectedItem as Building;
 
+            if (selectedBuilding == null)
+            {
+                MessageBox.Show("Please select a building to delete.");
+                return;
+            }
+
+            DialogResult result = MessageBox.Show(
+                $"Are you sure you want to delete '{selectedBuilding.Name}'?",
+                "Delete Building",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question);
+
+            if (result == DialogResult.No)
+            {
+                return;
+            }
+
+            AppData.Buildings.Remove(selectedBuilding);
+            FillBuildingListBox();
+
+            // Clear Floors + Rooms lists
+            listBoxFloors.Items.Clear();
+            listBoxRooms.Items.Clear();
+
+            // Clear summaries
+            labelBuildingSum.Text = "Building Summary:";
+            labelFloorSum.Text = "Floor Summary:";
+            labelRoomSum.Text = "Room Summary:";
         }
+        
         private void listBoxBuildings_SelectedIndexChanged(object sender, EventArgs e)
         {
+            // 1) Get currently selected building
+            Building selectedBuilding = listBoxBuildings.SelectedItem as Building;
 
+            if (selectedBuilding == null)
+                return;
+
+            // 2) Load floors for this building
+            FillFloorListBox(selectedBuilding);
+
+            // 3) Update building summary
+            UpdateBuildingSum(selectedBuilding);
         }
 
         private void buttonFloorsAdd_Click(object sender, EventArgs e)
@@ -76,10 +118,16 @@ namespace INF1_EX1_Group02.Windows_GUIs_
             new UseForm().ShowDialog();
         }
 
-        private void FillBuildingListBox()
+        public void FillBuildingListBox()
         {
+            listBoxBuildings.Items.Clear();
 
+            foreach (Building b in AppData.Buildings)
+            {
+                listBoxBuildings.Items.Add(b);
+            }
         }
+
 
         private void FillFloorListBox(Building building)
         {
@@ -95,8 +143,25 @@ namespace INF1_EX1_Group02.Windows_GUIs_
             //}
         }
 
-        private void UpdateBuildingSum(BuildingForm building)
+        private void UpdateBuildingSum(Building building)
         {
+            if (building == null)
+            {
+                labelBuildingSum.Text = "Building Summary:";
+                return;
+            }
+
+            // 1) Recalculate totals
+            building.totalCost();
+            building.totalFurniture();
+
+            // 2) Build the summary text
+            string summary = "Building Summary:\n" +
+                             $"Total Cost: {building.TotCost} €\n" +
+                             $"Total Amount of Furniture: {building.TotFurniture}";
+
+            // 3) Show it in the label
+            labelBuildingSum.Text = summary;
 
         }
 

@@ -28,27 +28,27 @@
         /// </summary>
         private void InitializeComponent()
         {
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
+            textBoxName = new TextBox();
+            textBoxArea = new TextBox();
             buttonAddBuildingOK = new Button();
             labelBuildingName = new Label();
             labelBuildingArea = new Label();
             labelBuildingAreaUnit = new Label();
             SuspendLayout();
             // 
-            // textBox1
+            // textBoxName
             // 
-            textBox1.Location = new Point(72, 12);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(153, 27);
-            textBox1.TabIndex = 0;
+            textBoxName.Location = new Point(72, 12);
+            textBoxName.Name = "textBoxName";
+            textBoxName.Size = new Size(153, 27);
+            textBoxName.TabIndex = 0;
             // 
-            // textBox2
+            // textBoxArea
             // 
-            textBox2.Location = new Point(72, 54);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(153, 27);
-            textBox2.TabIndex = 1;
+            textBoxArea.Location = new Point(72, 54);
+            textBoxArea.Name = "textBoxArea";
+            textBoxArea.Size = new Size(153, 27);
+            textBoxArea.TabIndex = 1;
             // 
             // buttonAddBuildingOK
             // 
@@ -96,8 +96,8 @@
             Controls.Add(labelBuildingArea);
             Controls.Add(labelBuildingName);
             Controls.Add(buttonAddBuildingOK);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
+            Controls.Add(textBoxArea);
+            Controls.Add(textBoxName);
             Name = "BuildingForm";
             Text = "Add a Building";
             ResumeLayout(false);
@@ -106,8 +106,8 @@
 
         #endregion
 
-        private TextBox textBox1;
-        private TextBox textBox2;
+        private TextBox textBoxName;
+        private TextBox textBoxArea;
         private Button buttonAddBuildingOK;
         private Label labelBuildingName;
         private Label labelBuildingArea;
