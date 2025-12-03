@@ -9,13 +9,17 @@ namespace INF1_EX1_Group02.Classes
     public class Use
     {
         // Attributes
-        private static int id = 0;
+        
+        // Thread-safe id generation
+        private static int nextId = 0;
+
+        private readonly int id;
         private string name;
         private double qk; //live load in kN/m²
 
         public Use(string name, double qk)
         {
-            id = id++;
+            this.id = Interlocked.Increment(ref nextId);
             this.name = name;
             this.qk = qk;
         }

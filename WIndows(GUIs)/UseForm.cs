@@ -32,14 +32,30 @@ namespace INF1_EX1_Group02.Windows_GUIs_
             if(listBoxUses.SelectedItem != null)
             {
                 Use selectedUse = listBoxUses.SelectedItem as Use;
-                
+
+                // Check if any Room references this Use
+                bool isUsed = AppData.Buildings
+                    .SelectMany(b => b.Floors)  // Get all Floors from all Buildings
+                    .SelectMany(f => f.Rooms)   // Get all Rooms from all Floors
+                    .Any(r => r.Use == selectedUse);
+
+                if (isUsed)
+                {
+                    MessageBox.Show("Cannot delete this use because it is referenced by one or more rooms.", "Deletion Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
                 // Confirm Deletion
-                string message = "Are you sure you want to delete the selected Use: " + selectedUse.Name + "?";
-                MessageBox.Show(message, "Confirm Deletion", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                string message = $"Are you sure you want to delete the selected use: {selectedUse} ?";
+                DialogResult result = MessageBox.Show(message, "Confirm Deletion", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 
-                // Delete the Use
-                AppData.Uses.Remove(selectedUse);
-                FillUseListBox();
+                if (result == DialogResult.Yes)
+                {
+                    // Delete the Use
+                    AppData.Uses.Remove(selectedUse);
+                    FillUseListBox();
+                }
+                               
             }
         }
 
@@ -81,7 +97,7 @@ namespace INF1_EX1_Group02.Windows_GUIs_
             {
                 labelUseSum.Text = "Use Information:" +
                                     "\nName: " + use.Name +
-                                    "\nLive Load qK: " + use.Qk.ToString() + "kN/m²";
+                                    "\nLive Load qK: " + use.Qk.ToString() + " kN/m²";
             }
                 
         }
