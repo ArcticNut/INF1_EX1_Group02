@@ -10,9 +10,10 @@ namespace INF1_EX1_Group02.Classes
     public class Floor
     {
         // ------- Attributes -------
-        private static int idCounter = 0;   // counts created floors
+        // Thread-safe id generation
+        private static int nextId = 0;
 
-        private int id;
+        private readonly int id;
         private int level;                 //  0 = ground floor, 1 = first floor
         private double height;             // storey height in m
         private List<Room> rooms;
@@ -22,7 +23,7 @@ namespace INF1_EX1_Group02.Classes
 
         public Floor(int level, double height)
         {
-            id = ++idCounter;
+            this.id = Interlocked.Increment(ref nextId);
             this.level = level;
             this.height = height;
             this.rooms = new List<Room>();

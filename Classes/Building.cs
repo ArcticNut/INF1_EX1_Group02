@@ -11,6 +11,11 @@ namespace INF1_EX1_Group02.Classes
         // -------------------------
         // Define Attributes
         // -------------------------
+        // Thread-safe id generation
+        private static int nextId = 0;
+
+        private readonly int id;
+
         private string name;
         private double area;
         private int totFurniture;
@@ -26,6 +31,7 @@ namespace INF1_EX1_Group02.Classes
         // -------------------------
         public Building(string name, double area)
         {
+            this.id = Interlocked.Increment(ref nextId);
             this.name = name;
             this.area = area;
             totFurniture = 0;
@@ -39,6 +45,8 @@ namespace INF1_EX1_Group02.Classes
         // -------------------------
         // Getter & Setter
         // -------------------------
+        public int Id { get { return id; } }
+
         public string Name
         {
             get { return name; }
