@@ -28,56 +28,57 @@
         /// </summary>
         private void InitializeComponent()
         {
-            button1 = new Button();
-            label1 = new Label();
-            label2 = new Label();
-            comboBox1 = new ComboBox();
-            textBox1 = new TextBox();
+            buttonFloorAdd = new Button();
+            labelFloorLevel = new Label();
+            labelFloorHeight = new Label();
+            comboBoxFloorLevel = new ComboBox();
+            textBoxFloorHeight = new TextBox();
             label3 = new Label();
             SuspendLayout();
             // 
-            // button1
+            // buttonFloorAdd
             // 
-            button1.Location = new Point(269, 167);
-            button1.Name = "buttonFloorAdd";
-            button1.Size = new Size(75, 23);
-            button1.TabIndex = 0;
-            button1.Text = "add";
-            button1.UseVisualStyleBackColor = true;
+            buttonFloorAdd.Location = new Point(269, 167);
+            buttonFloorAdd.Name = "buttonFloorAdd";
+            buttonFloorAdd.Size = new Size(75, 23);
+            buttonFloorAdd.TabIndex = 0;
+            buttonFloorAdd.Text = "add";
+            buttonFloorAdd.UseVisualStyleBackColor = true;
+            buttonFloorAdd.Click += buttonOK_Click;
             // 
-            // label1
+            // labelFloorLevel
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(54, 62);
-            label1.Name = "label1";
-            label1.Size = new Size(70, 15);
-            label1.TabIndex = 1;
-            label1.Text = "Floor Level: ";
+            labelFloorLevel.AutoSize = true;
+            labelFloorLevel.Location = new Point(54, 62);
+            labelFloorLevel.Name = "labelFloorLevel";
+            labelFloorLevel.Size = new Size(70, 15);
+            labelFloorLevel.TabIndex = 1;
+            labelFloorLevel.Text = "Floor Level: ";
             // 
-            // label2
+            // labelFloorHeight
             // 
-            label2.AutoSize = true;
-            label2.Location = new Point(54, 108);
-            label2.Name = "label2";
-            label2.Size = new Size(79, 15);
-            label2.TabIndex = 2;
-            label2.Text = "Floor Height: ";
+            labelFloorHeight.AutoSize = true;
+            labelFloorHeight.Location = new Point(54, 108);
+            labelFloorHeight.Name = "labelFloorHeight";
+            labelFloorHeight.Size = new Size(79, 15);
+            labelFloorHeight.TabIndex = 2;
+            labelFloorHeight.Text = "Floor Height: ";
             // 
-            // comboBox1
+            // comboBoxFloorLevel
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Items.AddRange(new object[] { "1", "2", "3", "4", "5", "6", "7", "8", "9" });
-            comboBox1.Location = new Point(269, 60);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(121, 23);
-            comboBox1.TabIndex = 3;
+            comboBoxFloorLevel.FormattingEnabled = true;
+            comboBoxFloorLevel.Items.AddRange(new object[] { "1", "2", "3", "4", "5", "6", "7", "8", "9" });
+            comboBoxFloorLevel.Location = new Point(269, 60);
+            comboBoxFloorLevel.Name = "comboBoxFloorLevel";
+            comboBoxFloorLevel.Size = new Size(121, 23);
+            comboBoxFloorLevel.TabIndex = 3;
             // 
-            // textBox1
+            // textBoxFloorHeight
             // 
-            textBox1.Location = new Point(269, 100);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(121, 23);
-            textBox1.TabIndex = 4;
+            textBoxFloorHeight.Location = new Point(269, 100);
+            textBoxFloorHeight.Name = "textBoxFloorHeight";
+            textBoxFloorHeight.Size = new Size(121, 23);
+            textBoxFloorHeight.TabIndex = 4;
             // 
             // label3
             // 
@@ -94,11 +95,11 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(486, 268);
             Controls.Add(label3);
-            Controls.Add(textBox1);
-            Controls.Add(comboBox1);
-            Controls.Add(label2);
-            Controls.Add(label1);
-            Controls.Add(button1);
+            Controls.Add(textBoxFloorHeight);
+            Controls.Add(comboBoxFloorLevel);
+            Controls.Add(labelFloorHeight);
+            Controls.Add(labelFloorLevel);
+            Controls.Add(buttonFloorAdd);
             Margin = new Padding(3, 2, 3, 2);
             Name = "FloorForm";
             Text = "FloorForm";
@@ -108,11 +109,11 @@
 
         #endregion
 
-        private Button button1;
-        private Label label1;
-        private Label label2;
-        private ComboBox comboBox1;
-        private TextBox textBox1;
+        private Button buttonFloorAdd;
+        private Label labelFloorLevel;
+        private Label labelFloorHeight;
+        private ComboBox comboBoxFloorLevel;
+        private TextBox textBoxFloorHeight;
         private Label label3;
     }
 }

@@ -1,3 +1,4 @@
+using INF1_EX1_Group02.Windows_GUIs_;
 using INF1_EX1_Group02.Classes;
 
 namespace INF1_EX1_Group02.Windows_GUIs_
@@ -58,23 +59,94 @@ namespace INF1_EX1_Group02.Windows_GUIs_
             if (selectedBuilding == null)
                 return;
 
-            FillFloorListBox(selectedBuilding);
+            FillListBoxFloor(selectedBuilding);
             UpdateBuildingSum(selectedBuilding);
         }
 
         private void buttonFloorsAdd_Click(object sender, EventArgs e)
         {
+            Building selectedBuilding = listBoxBuildings.SelectedItem as Building;
 
+            if (selectedBuilding == null)
+            {
+                MessageBox.Show("Please select a building first.",
+                                "No Building Selected",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Warning);
+                return;
+            }
+
+            using (FloorForm form = new FloorForm(selectedBuilding))
+            {
+                if (form.ShowDialog() == DialogResult.OK)
+                {
+                    FillListBoxFloor(selectedBuilding);
+                    UpdateBuildingSum(selectedBuilding);
+                }
+            }
         }
+
 
         private void buttonFloorsDelete_Click(object sender, EventArgs e)
         {
+            Building selectedBuilding = listBoxBuildings.SelectedItem as Building;
+            if (selectedBuilding == null)
+            {
+                MessageBox.Show("Please select a building first.",
+                                "No Building Selected",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Warning);
+                return;
+            }
 
+            Floor selectedFloor = listBoxFloors.SelectedItem as Floor;
+            if (selectedFloor == null)
+            {
+                MessageBox.Show("Please select a floor to delete.",
+                                "No Floor Selected",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Warning);
+                return;
+            }
+
+            DialogResult result = MessageBox.Show(
+                $"Are you sure you want to delete floor {selectedFloor.Level}?",
+                "Delete Floor",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning);
+
+            if (result == DialogResult.No)
+                return;
+
+            // 1) deleting the floor from the building
+            selectedBuilding.Floors.Remove(selectedFloor);
+
+            // 2) renewing the floor list
+            FillListBoxFloor(selectedBuilding);
+
+            // 3) update summaries and clear room list
+            listBoxRooms.Items.Clear();
+            UpdateFloorSummary(null);
+            UpdateBuildingSum(selectedBuilding);
         }
 
         private void listBoxFloors_SelectedIndexChanged(object sender, EventArgs e)
         {
+            Floor selectedFloor = listBoxFloors.SelectedItem as Floor;
 
+            if (selectedFloor == null)
+            {
+                // when no floor is selected, clear room list and floor summary
+                listBoxRooms.Items.Clear();
+                UpdateFloorSummary(null);
+                return;
+            }
+
+            // 1) show rooms of the selected floor
+            FillListBoxRoom(selectedFloor);
+
+            // 2) update floor summary
+            UpdateFloorSummary(selectedFloor);
         }
 
         private void buttonRoomsAdd_Click(object sender, EventArgs e)
@@ -113,7 +185,7 @@ namespace INF1_EX1_Group02.Windows_GUIs_
                 return;
             }
             selectedFloor.Rooms.Remove(selectedRoom);
-            FillRoomListBox(selectedFloor);
+            FillListBoxRoom(selectedFloor);
         }
 
         private void buttonRoomsEdit_Click(object sender, EventArgs e)
@@ -172,11 +244,19 @@ namespace INF1_EX1_Group02.Windows_GUIs_
         }
 
 
-        private void FillFloorListBox(Building building)
+        private void FillListBoxFloor(Building building)
         {
+            listBoxFloors.Items.Clear();
+            if (building == null) return;
+
+            foreach (Floor floor in building.Floors)
+            {
+                listBoxFloors.Items.Add(floor);
+            }
         }
 
-        private void FillRoomListBox(Floor floor)
+
+        private void FillListBoxRoom(Floor floor)
         {
             listBoxRooms.Items.Clear();
             // add all rooms of the Floor to the listBox
@@ -208,8 +288,23 @@ namespace INF1_EX1_Group02.Windows_GUIs_
 
         }
 
-        private void UpdateFloorSum(Floor floor)
+        private void UpdateFloorSummary(Floor floor)
         {
+            if (floor == null)
+            {
+                labelFloorSum.Text = "Floor Summary:";
+                return;
+            }
+
+            // take the calculations from the Floor class
+            double totalCost = floor.CalcTotalCost();
+            int totalFurniture = floor.CalcTotFurniture();
+
+            string summary = "Floor Summary:\n" +
+                             $"Total Cost: {totalCost} €\n" +
+                             $"Total Amount of Furniture: {totalFurniture}";
+
+            labelFloorSum.Text = summary;
         }
 
         private void UpdateRoomSum(Room room)
