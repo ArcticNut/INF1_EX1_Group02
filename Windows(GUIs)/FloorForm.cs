@@ -19,20 +19,24 @@ namespace INF1_EX1_Group02.Windows_GUIs_
         }
 
         private void buttonOK_Click(object sender, EventArgs e)
-        {   
+        {
 
-            string levelText = comboBoxFloorLevel.Text.Trim();
+            int level;
             string heightText = textBoxFloorHeight.Text.Trim();
 
-            if (!int.TryParse(levelText, out int level))
+            if (comboBoxFloorLevel.SelectedItem==null)
             {
                 MessageBox.Show("Please enter a valid floor level.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+            else
+            {
+                level = (int)comboBoxFloorLevel.SelectedItem;
+            }
 
             if (!double.TryParse(heightText, out double height) || height <= 0)
             {
-                MessageBox.Show("Please enter a valid floor height \nfloor height must be positive.","Error",MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Please enter a valid floor height \nfloor height must be positive.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
