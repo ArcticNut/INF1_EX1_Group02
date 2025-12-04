@@ -80,7 +80,7 @@ namespace INF1_EX1_Group02.Windows_GUIs_
                 return;
             }
 
-            using (FloorForm form = new FloorForm(selectedBuilding))
+            using (FloorForm form = new FloorForm(selectedBuilding, 1))
             {
                 if (form.ShowDialog() == DialogResult.OK)
                 {

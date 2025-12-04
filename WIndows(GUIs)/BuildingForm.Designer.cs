@@ -34,25 +34,27 @@
             labelBuildingName = new Label();
             labelBuildingArea = new Label();
             labelBuildingAreaUnit = new Label();
+            label1 = new Label();
+            textBoxBuildingFloors = new TextBox();
             SuspendLayout();
             // 
             // textBoxName
             // 
-            textBoxName.Location = new Point(72, 12);
+            textBoxName.Location = new Point(94, 12);
             textBoxName.Name = "textBoxName";
             textBoxName.Size = new Size(153, 27);
             textBoxName.TabIndex = 0;
             // 
             // textBoxArea
             // 
-            textBoxArea.Location = new Point(72, 54);
+            textBoxArea.Location = new Point(94, 54);
             textBoxArea.Name = "textBoxArea";
             textBoxArea.Size = new Size(153, 27);
             textBoxArea.TabIndex = 1;
             // 
             // buttonAddBuildingOK
             // 
-            buttonAddBuildingOK.Location = new Point(165, 101);
+            buttonAddBuildingOK.Location = new Point(183, 155);
             buttonAddBuildingOK.Name = "buttonAddBuildingOK";
             buttonAddBuildingOK.Size = new Size(94, 29);
             buttonAddBuildingOK.TabIndex = 2;
@@ -81,17 +83,35 @@
             // labelBuildingAreaUnit
             // 
             labelBuildingAreaUnit.AutoSize = true;
-            labelBuildingAreaUnit.Location = new Point(231, 61);
+            labelBuildingAreaUnit.Location = new Point(253, 61);
             labelBuildingAreaUnit.Name = "labelBuildingAreaUnit";
             labelBuildingAreaUnit.Size = new Size(28, 20);
             labelBuildingAreaUnit.TabIndex = 5;
             labelBuildingAreaUnit.Text = "m²";
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(13, 98);
+            label1.Name = "label1";
+            label1.Size = new Size(70, 40);
+            label1.TabIndex = 6;
+            label1.Text = "Number \r\nof Floors:";
+            // 
+            // textBoxBuildingFloors
+            // 
+            textBoxBuildingFloors.Location = new Point(94, 103);
+            textBoxBuildingFloors.Name = "textBoxBuildingFloors";
+            textBoxBuildingFloors.Size = new Size(153, 27);
+            textBoxBuildingFloors.TabIndex = 7;
+            // 
             // BuildingForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(271, 143);
+            ClientSize = new Size(289, 207);
+            Controls.Add(textBoxBuildingFloors);
+            Controls.Add(label1);
             Controls.Add(labelBuildingAreaUnit);
             Controls.Add(labelBuildingArea);
             Controls.Add(labelBuildingName);
@@ -112,5 +132,7 @@
         private Label labelBuildingName;
         private Label labelBuildingArea;
         private Label labelBuildingAreaUnit;
+        private Label label1;
+        private TextBox textBoxBuildingFloors;
     }
 }
