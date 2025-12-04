@@ -21,6 +21,7 @@ namespace INF1_EX1_Group02.Windows_GUIs_
         private void buttonBuildingDelete_Click(object sender, EventArgs e)
         {
             Building selectedBuilding = listBoxBuildings.SelectedItem as Building;
+            int index = listBoxBuildings.SelectedIndex;
 
             if (selectedBuilding == null)
             {
@@ -41,6 +42,7 @@ namespace INF1_EX1_Group02.Windows_GUIs_
 
             AppData.Buildings.Remove(selectedBuilding);
             FillBuildingListBox();
+            listBoxBuildings.SelectedIndex = index - 1;
 
             // Clear Floors + Rooms lists
             listBoxFloors.Items.Clear();
@@ -54,6 +56,8 @@ namespace INF1_EX1_Group02.Windows_GUIs_
         
         private void listBoxBuildings_SelectedIndexChanged(object sender, EventArgs e)
         {
+            listBoxFloors.Items.Clear();
+
             Building selectedBuilding = listBoxBuildings.SelectedItem as Building;
 
             if (selectedBuilding == null)
@@ -90,16 +94,9 @@ namespace INF1_EX1_Group02.Windows_GUIs_
         private void buttonFloorsDelete_Click(object sender, EventArgs e)
         {
             Building selectedBuilding = listBoxBuildings.SelectedItem as Building;
-            if (selectedBuilding == null)
-            {
-                MessageBox.Show("Please select a building first.",
-                                "No Building Selected",
-                                MessageBoxButtons.OK,
-                                MessageBoxIcon.Warning);
-                return;
-            }
-
             Floor selectedFloor = listBoxFloors.SelectedItem as Floor;
+            int index = listBoxFloors.SelectedIndex;
+
             if (selectedFloor == null)
             {
                 MessageBox.Show("Please select a floor to delete.",
@@ -123,6 +120,7 @@ namespace INF1_EX1_Group02.Windows_GUIs_
 
             // renewing the floor list
             FillListBoxFloor(selectedBuilding);
+            listBoxFloors.SelectedIndex = index - 1;
 
             // update summaries and clear room list
             listBoxRooms.Items.Clear();
@@ -132,6 +130,8 @@ namespace INF1_EX1_Group02.Windows_GUIs_
 
         private void listBoxFloors_SelectedIndexChanged(object sender, EventArgs e)
         {
+            listBoxRooms.Items.Clear();
+
             Floor selectedFloor = listBoxFloors.SelectedItem as Floor;
 
             if (selectedFloor == null)
@@ -165,21 +165,17 @@ namespace INF1_EX1_Group02.Windows_GUIs_
 
         private void buttonRoomsDelete_Click(object sender, EventArgs e)
         {
-            if (listBoxFloors.SelectedItem == null)
-            {
-                MessageBox.Show("Please select the floor from which you want to delte a room.", "No Floor Selected", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
+            Room selectedRoom = listBoxRooms.SelectedItem as Room;
+            int index = listBoxRooms.SelectedIndex;
             Floor selectedFloor = listBoxFloors.SelectedItem as Floor;
 
-            if (listBoxRooms.SelectedItem == null) 
+            if (selectedRoom == null) 
             {
                 MessageBox.Show("Please select a room to delete.", "No Room Selected", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return; 
             }
-            
-            Room selectedRoom = listBoxRooms.SelectedItem as Room;
-            
+
+            // Confirm Deletion
             string message = $"Are you sure you want to delete the selected room: {selectedRoom} ?";
             DialogResult result = MessageBox.Show(message, "Confirm Deletion", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
@@ -187,8 +183,13 @@ namespace INF1_EX1_Group02.Windows_GUIs_
             {
                 return;
             }
+
+            // delete the room from the floor
             selectedFloor.Rooms.Remove(selectedRoom);
+
+            // Update Information
             FillListBoxRoom(selectedFloor);
+            listBoxRooms.SelectedIndex = index - 1;
             UpdateRoomSum(null);
             UpdateFloorSummary(selectedFloor);
             UpdateBuildingSum(listBoxBuildings.SelectedItem as Building);
@@ -294,7 +295,7 @@ namespace INF1_EX1_Group02.Windows_GUIs_
         {
             if (building == null)
             {
-                labelBuildingSum.Text = "Building Summary:";
+                textBoxBuildingSum.Text = "Building Summary:";
                 return;
             }
 
@@ -304,13 +305,12 @@ namespace INF1_EX1_Group02.Windows_GUIs_
             building.totalHeight();
 
             // Build the summary text
-            string summary = "Building Summary:\n" +
-                             $"Total Cost: {building.TotCost} €\n" +
-                             $"Heigth of the Building: {building.Height}\n" +
-                             $"Total Amount of Furniture: {building.TotFurniture}\n";
-                             
-            // Show it in the label
-            labelBuildingSum.Text = summary;
+            string summary = "Building Summary:" + Environment.NewLine +
+                             $"Heigth: {building.Height}" + Environment.NewLine +
+                             $"Total Cost: {building.TotCost} €" + Environment.NewLine +
+                             $"Total Amount of Furniture: {building.TotFurniture}";
+
+            textBoxBuildingSum.Text = summary;
 
         }
 
@@ -318,7 +318,7 @@ namespace INF1_EX1_Group02.Windows_GUIs_
         {
             if (floor == null)
             {
-                labelFloorSum.Text = "Floor Summary:";
+                textBoxFloorSum.Text = "Floor Summary:";
                 return;
             }
 
@@ -326,18 +326,18 @@ namespace INF1_EX1_Group02.Windows_GUIs_
             double totalCost = floor.CalcTotalCost();
             int totalFurniture = floor.CalcTotFurniture();
 
-            string summary = "Floor Summary:\n" +
-                             $"Total Cost: {totalCost} €\n" +
+            string summary = "Floor Summary:" + Environment.NewLine +
+                             $"Total Cost: {totalCost} €" + Environment.NewLine +
                              $"Total Amount of Furniture: {totalFurniture}";
 
-            labelFloorSum.Text = summary;
+            textBoxFloorSum.Text = summary;
         }
 
         private void UpdateRoomSum(Room room)
         {
             if (room == null)
             {
-                labelRoomSum.Text = "Room Summary:";
+                textBoxRoomSum.Text = "Room Summary:";
                 return;
             }
 
@@ -345,20 +345,20 @@ namespace INF1_EX1_Group02.Windows_GUIs_
             room.CalcRoomCost();
             room.CalcSlabVol();
 
-            string summary = "Room Summary:\n" +
-                $"Room Nr.: {room.RoomNr}\n" +
-                $"Area: {room.Area.ToString()} m²\n" +
-                $"Use: {room.Use.ToString()}\n" +
-                $"Load: {room.Load.ToString()} kN/m²\n" +
-                $"Slab Volume: {room.SlabVol.ToString()} m³\n" +
-                $"Concrete Cost: {room.Cost.ToString()} €\n" +
-                "Furniture:\n";
+            string summary = "Room Summary:" + Environment.NewLine +
+                $"Room Nr.: {room.RoomNr}" + Environment.NewLine +
+                $"Area: {room.Area.ToString()} m²" + Environment.NewLine +
+                $"Use: {room.Use.ToString()}" + Environment.NewLine +
+                $"Load: {room.Load.ToString()} kN/m²" + Environment.NewLine +
+                $"Slab Volume: {room.SlabVol.ToString()} m³" + Environment.NewLine +
+                $"Concrete Cost: {room.Cost.ToString()} €" + Environment.NewLine +
+                "Furniture:" + Environment.NewLine;
             foreach (Furniture furniture in room.Furnitures)
             {
-                summary += $"- {furniture.ToString()}\n";
+                summary += $" - {furniture.ToString()}" + Environment.NewLine;
             }
 
-            labelRoomSum.Text = summary;
+            textBoxRoomSum.Text = summary;
         }
 
     }

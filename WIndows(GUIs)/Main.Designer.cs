@@ -43,9 +43,9 @@
             label3 = new Label();
             buttonManageUses = new Button();
             buttonRoomAddFurniture = new Button();
-            labelBuildingSum = new Label();
-            labelFloorSum = new Label();
-            labelRoomSum = new Label();
+            textBoxBuildingSum = new TextBox();
+            textBoxFloorSum = new TextBox();
+            textBoxRoomSum = new TextBox();
             SuspendLayout();
             // 
             // listBoxBuildings
@@ -53,25 +53,25 @@
             listBoxBuildings.FormattingEnabled = true;
             listBoxBuildings.Location = new Point(18, 71);
             listBoxBuildings.Name = "listBoxBuildings";
-            listBoxBuildings.Size = new Size(176, 224);
+            listBoxBuildings.Size = new Size(249, 224);
             listBoxBuildings.TabIndex = 0;
             listBoxBuildings.SelectedIndexChanged += listBoxBuildings_SelectedIndexChanged;
             // 
             // listBoxFloors
             // 
             listBoxFloors.FormattingEnabled = true;
-            listBoxFloors.Location = new Point(220, 71);
+            listBoxFloors.Location = new Point(290, 71);
             listBoxFloors.Name = "listBoxFloors";
-            listBoxFloors.Size = new Size(176, 224);
+            listBoxFloors.Size = new Size(249, 224);
             listBoxFloors.TabIndex = 1;
             listBoxFloors.SelectedIndexChanged += listBoxFloors_SelectedIndexChanged;
             // 
             // listBoxRooms
             // 
             listBoxRooms.FormattingEnabled = true;
-            listBoxRooms.Location = new Point(422, 71);
+            listBoxRooms.Location = new Point(566, 71);
             listBoxRooms.Name = "listBoxRooms";
-            listBoxRooms.Size = new Size(176, 224);
+            listBoxRooms.Size = new Size(249, 224);
             listBoxRooms.TabIndex = 2;
             listBoxRooms.SelectedIndexChanged += listBoxRooms_SelectedIndexChanged;
             // 
@@ -100,7 +100,7 @@
             // buttonFloorsDelete
             // 
             buttonFloorsDelete.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            buttonFloorsDelete.Location = new Point(281, 311);
+            buttonFloorsDelete.Location = new Point(351, 311);
             buttonFloorsDelete.Name = "buttonFloorsDelete";
             buttonFloorsDelete.Size = new Size(55, 29);
             buttonFloorsDelete.TabIndex = 6;
@@ -111,7 +111,7 @@
             // buttonFloorsAdd
             // 
             buttonFloorsAdd.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            buttonFloorsAdd.Location = new Point(220, 311);
+            buttonFloorsAdd.Location = new Point(290, 311);
             buttonFloorsAdd.Name = "buttonFloorsAdd";
             buttonFloorsAdd.Size = new Size(55, 29);
             buttonFloorsAdd.TabIndex = 5;
@@ -122,7 +122,7 @@
             // buttonRoomsDelete
             // 
             buttonRoomsDelete.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            buttonRoomsDelete.Location = new Point(482, 311);
+            buttonRoomsDelete.Location = new Point(626, 311);
             buttonRoomsDelete.Name = "buttonRoomsDelete";
             buttonRoomsDelete.Size = new Size(55, 29);
             buttonRoomsDelete.TabIndex = 8;
@@ -133,7 +133,7 @@
             // buttonRoomsAdd
             // 
             buttonRoomsAdd.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            buttonRoomsAdd.Location = new Point(421, 311);
+            buttonRoomsAdd.Location = new Point(565, 311);
             buttonRoomsAdd.Name = "buttonRoomsAdd";
             buttonRoomsAdd.Size = new Size(55, 29);
             buttonRoomsAdd.TabIndex = 7;
@@ -143,12 +143,12 @@
             // 
             // buttonRoomsEdit
             // 
-            buttonRoomsEdit.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            buttonRoomsEdit.Location = new Point(543, 311);
+            buttonRoomsEdit.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            buttonRoomsEdit.Location = new Point(687, 311);
             buttonRoomsEdit.Name = "buttonRoomsEdit";
-            buttonRoomsEdit.Size = new Size(55, 29);
+            buttonRoomsEdit.Size = new Size(128, 29);
             buttonRoomsEdit.TabIndex = 9;
-            buttonRoomsEdit.Text = "Edit";
+            buttonRoomsEdit.Text = "Edit Room";
             buttonRoomsEdit.UseVisualStyleBackColor = true;
             buttonRoomsEdit.Click += buttonRoomsEdit_Click;
             // 
@@ -164,7 +164,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(220, 49);
+            label2.Location = new Point(290, 49);
             label2.Name = "label2";
             label2.Size = new Size(49, 20);
             label2.TabIndex = 11;
@@ -173,7 +173,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(421, 48);
+            label3.Location = new Point(565, 48);
             label3.Name = "label3";
             label3.Size = new Size(55, 20);
             label3.TabIndex = 12;
@@ -191,49 +191,58 @@
             // 
             // buttonRoomAddFurniture
             // 
-            buttonRoomAddFurniture.Location = new Point(421, 343);
+            buttonRoomAddFurniture.Location = new Point(565, 343);
             buttonRoomAddFurniture.Name = "buttonRoomAddFurniture";
-            buttonRoomAddFurniture.Size = new Size(176, 28);
+            buttonRoomAddFurniture.Size = new Size(250, 28);
             buttonRoomAddFurniture.TabIndex = 14;
             buttonRoomAddFurniture.Text = "Add Furniture";
             buttonRoomAddFurniture.UseVisualStyleBackColor = true;
             buttonRoomAddFurniture.Click += buttonRoomAddFurniture_Click;
             // 
-            // labelBuildingSum
+            // textBoxBuildingSum
             // 
-            labelBuildingSum.AutoSize = true;
-            labelBuildingSum.Location = new Point(18, 383);
-            labelBuildingSum.Name = "labelBuildingSum";
-            labelBuildingSum.Size = new Size(133, 20);
-            labelBuildingSum.TabIndex = 15;
-            labelBuildingSum.Text = "Building Summary:";
+            textBoxBuildingSum.AcceptsReturn = true;
+            textBoxBuildingSum.BorderStyle = BorderStyle.None;
+            textBoxBuildingSum.Location = new Point(18, 383);
+            textBoxBuildingSum.Multiline = true;
+            textBoxBuildingSum.Name = "textBoxBuildingSum";
+            textBoxBuildingSum.ReadOnly = true;
+            textBoxBuildingSum.ScrollBars = ScrollBars.Vertical;
+            textBoxBuildingSum.Size = new Size(249, 211);
+            textBoxBuildingSum.TabIndex = 18;
             // 
-            // labelFloorSum
+            // textBoxFloorSum
             // 
-            labelFloorSum.AutoSize = true;
-            labelFloorSum.Location = new Point(220, 383);
-            labelFloorSum.Name = "labelFloorSum";
-            labelFloorSum.Size = new Size(112, 20);
-            labelFloorSum.TabIndex = 16;
-            labelFloorSum.Text = "Floor Summary:";
+            textBoxFloorSum.AcceptsReturn = true;
+            textBoxFloorSum.BorderStyle = BorderStyle.None;
+            textBoxFloorSum.Location = new Point(290, 383);
+            textBoxFloorSum.Multiline = true;
+            textBoxFloorSum.Name = "textBoxFloorSum";
+            textBoxFloorSum.ReadOnly = true;
+            textBoxFloorSum.ScrollBars = ScrollBars.Vertical;
+            textBoxFloorSum.Size = new Size(249, 211);
+            textBoxFloorSum.TabIndex = 19;
             // 
-            // labelRoomSum
+            // textBoxRoomSum
             // 
-            labelRoomSum.AutoSize = true;
-            labelRoomSum.Location = new Point(421, 383);
-            labelRoomSum.Name = "labelRoomSum";
-            labelRoomSum.Size = new Size(118, 20);
-            labelRoomSum.TabIndex = 17;
-            labelRoomSum.Text = "Room Summary:";
+            textBoxRoomSum.AcceptsReturn = true;
+            textBoxRoomSum.BorderStyle = BorderStyle.None;
+            textBoxRoomSum.Location = new Point(566, 383);
+            textBoxRoomSum.Multiline = true;
+            textBoxRoomSum.Name = "textBoxRoomSum";
+            textBoxRoomSum.ReadOnly = true;
+            textBoxRoomSum.ScrollBars = ScrollBars.Vertical;
+            textBoxRoomSum.Size = new Size(249, 211);
+            textBoxRoomSum.TabIndex = 20;
             // 
             // Main
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(614, 560);
-            Controls.Add(labelRoomSum);
-            Controls.Add(labelFloorSum);
-            Controls.Add(labelBuildingSum);
+            ClientSize = new Size(833, 606);
+            Controls.Add(textBoxRoomSum);
+            Controls.Add(textBoxFloorSum);
+            Controls.Add(textBoxBuildingSum);
             Controls.Add(buttonRoomAddFurniture);
             Controls.Add(buttonManageUses);
             Controls.Add(label3);
@@ -272,8 +281,8 @@
         private Label label3;
         private Button buttonManageUses;
         private Button buttonRoomAddFurniture;
-        private Label labelBuildingSum;
-        private Label labelFloorSum;
-        private Label labelRoomSum;
+        private TextBox textBoxBuildingSum;
+        private TextBox textBoxFloorSum;
+        private TextBox textBoxRoomSum;
     }
 }
