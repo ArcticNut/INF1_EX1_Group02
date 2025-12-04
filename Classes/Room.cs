@@ -55,7 +55,7 @@ namespace INF1_EX1_Group02.Classes
         }
         public void CalcRoomCost()
         {
-            double costPerCubicMeter = 150; //assumed cost per cubic meter of concrete need to research a refernce
+            double costPerCubicMeter = 150; // €/m² assumed cost of concrete need to research a refernce
             CalcSlabVol();
             cost = slabVol * costPerCubicMeter;
         }

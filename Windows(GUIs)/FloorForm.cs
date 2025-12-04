@@ -31,7 +31,7 @@ namespace INF1_EX1_Group02.Windows_GUIs_
             }
             else
             {
-                level = (int)comboBoxFloorLevel.SelectedItem;
+                level = int.Parse(comboBoxFloorLevel.Text);
             }
 
             if (!double.TryParse(heightText, out double height) || height <= 0)

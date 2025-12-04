@@ -44,13 +44,6 @@ namespace INF1_EX1_Group02.Classes
 
         // ------- Methods -------
 
-
-        // number of rooms on the floor
-        public int CalcNrRooms()
-        {
-            return rooms.Count();
-        }
-
         // total furniture items on this floor 
         public int CalcTotFurniture()
         {

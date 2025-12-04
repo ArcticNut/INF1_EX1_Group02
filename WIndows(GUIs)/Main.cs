@@ -290,12 +290,14 @@ namespace INF1_EX1_Group02.Windows_GUIs_
             // Recalculate totals
             building.totalCost();
             building.totalFurniture();
+            building.totalHeight();
 
             // Build the summary text
             string summary = "Building Summary:\n" +
                              $"Total Cost: {building.TotCost} €\n" +
-                             $"Total Amount of Furniture: {building.TotFurniture}";
-
+                             $"Heigth of the Building: {building.Height}\n" +
+                             $"Total Amount of Furniture: {building.TotFurniture}\n";
+                             
             // Show it in the label
             labelBuildingSum.Text = summary;
 

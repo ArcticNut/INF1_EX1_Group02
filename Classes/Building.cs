@@ -109,13 +109,19 @@ namespace INF1_EX1_Group02.Classes
         public void totalHeight()
         {
             double sum = 0.0;
-            //slabthickness?
             foreach (Floor floor in floors)
             {
                 sum += floor.Height;
             }
 
             height = sum;
+        }
+
+        public double totalSlabVolume()
+        {
+            //sum slab volume for all floor (using the method from floor class)
+            double totVol = 0.0;
+            return totVol;
         }
 
         public override string ToString()
