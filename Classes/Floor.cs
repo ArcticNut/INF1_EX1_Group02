@@ -45,21 +45,6 @@ namespace INF1_EX1_Group02.Classes
         // ------- Methods -------
 
 
-        // add a room to this floor
-        public void AddRoom(Room room)
-        {
-            if (room == null) return;
-            rooms.Add(room);
-        }
-
-        // remove a room from this floor
-        public void RemoveRoom(Room room)
-        {
-            if (room == null) return;
-            rooms.Remove(room);
-        }
-
-
         // number of rooms on the floor
         public int CalcNrRooms()
         {
