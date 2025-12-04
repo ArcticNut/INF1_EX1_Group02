@@ -99,7 +99,7 @@ namespace INF1_EX1_Group02.Windows_GUIs_
             {
                 // Add new Room
                 Room newRoom = new Room(roomNr, area, use, slabThickness);
-                floor.AddRoom(newRoom);
+                floor.Rooms.Add(newRoom);
             }
 
             // Close the form with OK result
