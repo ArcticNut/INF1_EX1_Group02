@@ -118,13 +118,13 @@ namespace INF1_EX1_Group02.Windows_GUIs_
             if (result == DialogResult.No)
                 return;
 
-            // 1) deleting the floor from the building
+            // deleting the floor from the building
             selectedBuilding.Floors.Remove(selectedFloor);
 
-            // 2) renewing the floor list
+            // renewing the floor list
             FillListBoxFloor(selectedBuilding);
 
-            // 3) update summaries and clear room list
+            // update summaries and clear room list
             listBoxRooms.Items.Clear();
             UpdateFloorSummary(null);
             UpdateBuildingSum(selectedBuilding);
@@ -142,10 +142,10 @@ namespace INF1_EX1_Group02.Windows_GUIs_
                 return;
             }
 
-            // 1) show rooms of the selected floor
+            // show rooms of the selected floor
             FillListBoxRoom(selectedFloor);
 
-            // 2) update floor summary
+            // update floor summary
             UpdateFloorSummary(selectedFloor);
         }
 
@@ -259,8 +259,10 @@ namespace INF1_EX1_Group02.Windows_GUIs_
         private void FillListBoxRoom(Floor floor)
         {
             listBoxRooms.Items.Clear();
+            if (floor == null) return;
+
             // add all rooms of the Floor to the listBox
-            foreach(Room room in floor.Rooms)
+            foreach (Room room in floor.Rooms)
             {
                 listBoxRooms.Items.Add(room);
             }

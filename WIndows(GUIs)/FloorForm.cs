@@ -25,13 +25,13 @@ namespace INF1_EX1_Group02.Windows_GUIs_
 
             if (!int.TryParse(levelText, out int level))
             {
-                MessageBox.Show("Please enter a valid floor level.");
+                MessageBox.Show("Please enter a valid floor level.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
             if (!double.TryParse(heightText, out double height) || height <= 0)
             {
-                MessageBox.Show("Please enter a valid floor height (> 0).");
+                MessageBox.Show("Please enter a valid floor height \nfloor height must be positive.","Error",MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 

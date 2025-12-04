@@ -44,7 +44,6 @@
             buttonFloorAdd.TabIndex = 0;
             buttonFloorAdd.Text = "add";
             buttonFloorAdd.UseVisualStyleBackColor = true;
-            buttonFloorAdd.Click += buttonOK_Click;
             // 
             // labelFloorLevel
             // 
