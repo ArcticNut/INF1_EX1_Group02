@@ -85,7 +85,7 @@ namespace INF1_EX1_Group02.Classes
 
         public override string ToString()
         {
-            return level.ToString();
+            return level.ToString() + ". Floor";
         }
 
     }
