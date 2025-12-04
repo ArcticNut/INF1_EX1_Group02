@@ -47,9 +47,9 @@ namespace INF1_EX1_Group02.Windows_GUIs_
             listBoxRooms.Items.Clear();
 
             // Clear summaries
-            labelBuildingSum.Text = "Building Summary:";
-            labelFloorSum.Text = "Floor Summary:";
-            labelRoomSum.Text = "Room Summary:";
+            UpdateBuildingSum(null);
+            UpdateFloorSummary(null);
+            UpdateRoomSum(null);
         }
         
         private void listBoxBuildings_SelectedIndexChanged(object sender, EventArgs e)
@@ -158,6 +158,9 @@ namespace INF1_EX1_Group02.Windows_GUIs_
             }
             Floor selectedFloor = listBoxFloors.SelectedItem as Floor;
             new RoomForm(selectedFloor).ShowDialog();
+            FillListBoxRoom(selectedFloor);
+            UpdateFloorSummary(selectedFloor);
+            UpdateBuildingSum(listBoxBuildings.SelectedItem as Building);
         }
 
         private void buttonRoomsDelete_Click(object sender, EventArgs e)
@@ -186,6 +189,9 @@ namespace INF1_EX1_Group02.Windows_GUIs_
             }
             selectedFloor.Rooms.Remove(selectedRoom);
             FillListBoxRoom(selectedFloor);
+            UpdateRoomSum(null);
+            UpdateFloorSummary(selectedFloor);
+            UpdateBuildingSum(listBoxBuildings.SelectedItem as Building);
         }
 
         private void buttonRoomsEdit_Click(object sender, EventArgs e)
@@ -205,6 +211,9 @@ namespace INF1_EX1_Group02.Windows_GUIs_
             Floor selectedFloor = listBoxFloors.SelectedItem as Floor;           
             Room selectedRoom = listBoxRooms.SelectedItem as Room;
             new RoomForm(selectedFloor, selectedRoom).ShowDialog();
+            UpdateRoomSum(selectedRoom);
+            UpdateFloorSummary(selectedFloor);
+            UpdateBuildingSum(listBoxBuildings.SelectedItem as Building);
         }
 
         private void listBoxRooms_SelectedIndexChanged(object sender, EventArgs e)
@@ -227,6 +236,8 @@ namespace INF1_EX1_Group02.Windows_GUIs_
             {
                 MessageBox.Show("Please select a room to add furniture to.", "No Room Selected", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+
+            UpdateRoomSum(selectedRoom);
         }
         private void buttonManageUses_Click(object sender, EventArgs e)
         {
