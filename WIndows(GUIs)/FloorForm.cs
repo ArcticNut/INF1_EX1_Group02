@@ -26,7 +26,7 @@ namespace INF1_EX1_Group02.Windows_GUIs_
 
             if (comboBoxFloorLevel.SelectedItem==null)
             {
-                MessageBox.Show("Please enter a valid floor level.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Please select a floor.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             else
