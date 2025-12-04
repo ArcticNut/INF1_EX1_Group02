@@ -52,25 +52,25 @@ namespace INF1_EX1_Group02.Windows_GUIs_
             for (int i = 1; i <= FloorCount; i++)
             {
                 Label floorLabel = new Label();
-                floorLabel.Text = $"Floor {i} Height (m):";
+                floorLabel.Text = $"Floor {_building.Floors.Count() + i} Height (m):";
                 floorLabel.Location = new Point(20, y);
                 floorLabel.AutoSize = true;
                 this.Controls.Add(floorLabel);
 
                 TextBox textBoxHeight = new TextBox();
-                textBoxHeight.Location = new Point(150, y);
+                textBoxHeight.Location = new Point(200, y);
                 textBoxHeight.Width = 100;
                 this.Controls.Add(textBoxHeight);
 
                 _floorHeightTextBoxes.Add(textBoxHeight);
-                y += 30;
+                y += 40;
             }
 
             //adjust OK button position
-            buttonFloorAdd.Location = new Point(150, y);
+            buttonFloorAdd.Location = new Point(200, y);
 
             //resize the form
-            this.Height = y + 80;
+            this.Height = y + 100;
         }
     }
 }
