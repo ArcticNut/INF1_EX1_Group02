@@ -97,10 +97,9 @@ namespace INF1_EX1_Group02.Windows_GUIs_
             Floor selectedFloor = listBoxFloors.SelectedItem as Floor;
             int index = listBoxFloors.SelectedIndex;
 
-            if (selectedFloor == null)
+            if (index + 1 != selectedBuilding.Floors.Count())
             {
-                MessageBox.Show("Please select a floor to delete.",
-                                "No Floor Selected",
+                MessageBox.Show("You can only delete the top floor of a Building", "Error",
                                 MessageBoxButtons.OK,
                                 MessageBoxIcon.Warning);
                 return;
