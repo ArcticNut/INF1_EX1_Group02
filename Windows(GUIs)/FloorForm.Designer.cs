@@ -38,28 +38,30 @@
             // 
             // buttonFloorAdd
             // 
-            buttonFloorAdd.Location = new Point(269, 167);
+            buttonFloorAdd.Location = new Point(307, 223);
+            buttonFloorAdd.Margin = new Padding(3, 4, 3, 4);
             buttonFloorAdd.Name = "buttonFloorAdd";
-            buttonFloorAdd.Size = new Size(75, 23);
+            buttonFloorAdd.Size = new Size(86, 31);
             buttonFloorAdd.TabIndex = 0;
-            buttonFloorAdd.Text = "add";
+            buttonFloorAdd.Text = "OK";
             buttonFloorAdd.UseVisualStyleBackColor = true;
+            buttonFloorAdd.Click += buttonFloorAdd_Click;
             // 
             // labelFloorLevel
             // 
             labelFloorLevel.AutoSize = true;
-            labelFloorLevel.Location = new Point(54, 62);
+            labelFloorLevel.Location = new Point(62, 83);
             labelFloorLevel.Name = "labelFloorLevel";
-            labelFloorLevel.Size = new Size(70, 15);
+            labelFloorLevel.Size = new Size(88, 20);
             labelFloorLevel.TabIndex = 1;
             labelFloorLevel.Text = "Floor Level: ";
             // 
             // labelFloorHeight
             // 
             labelFloorHeight.AutoSize = true;
-            labelFloorHeight.Location = new Point(54, 108);
+            labelFloorHeight.Location = new Point(62, 144);
             labelFloorHeight.Name = "labelFloorHeight";
-            labelFloorHeight.Size = new Size(79, 15);
+            labelFloorHeight.Size = new Size(99, 20);
             labelFloorHeight.TabIndex = 2;
             labelFloorHeight.Text = "Floor Height: ";
             // 
@@ -67,39 +69,40 @@
             // 
             comboBoxFloorLevel.FormattingEnabled = true;
             comboBoxFloorLevel.Items.AddRange(new object[] { "1", "2", "3", "4", "5", "6", "7", "8", "9" });
-            comboBoxFloorLevel.Location = new Point(269, 60);
+            comboBoxFloorLevel.Location = new Point(307, 80);
+            comboBoxFloorLevel.Margin = new Padding(3, 4, 3, 4);
             comboBoxFloorLevel.Name = "comboBoxFloorLevel";
-            comboBoxFloorLevel.Size = new Size(121, 23);
+            comboBoxFloorLevel.Size = new Size(138, 28);
             comboBoxFloorLevel.TabIndex = 3;
             // 
             // textBoxFloorHeight
             // 
-            textBoxFloorHeight.Location = new Point(269, 100);
+            textBoxFloorHeight.Location = new Point(307, 133);
+            textBoxFloorHeight.Margin = new Padding(3, 4, 3, 4);
             textBoxFloorHeight.Name = "textBoxFloorHeight";
-            textBoxFloorHeight.Size = new Size(121, 23);
+            textBoxFloorHeight.Size = new Size(138, 27);
             textBoxFloorHeight.TabIndex = 4;
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(410, 103);
+            label3.Location = new Point(469, 137);
             label3.Name = "label3";
-            label3.Size = new Size(26, 15);
+            label3.Size = new Size(32, 20);
             label3.TabIndex = 5;
             label3.Text = "(m)";
             // 
             // FloorForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(486, 268);
+            ClientSize = new Size(555, 357);
             Controls.Add(label3);
             Controls.Add(textBoxFloorHeight);
             Controls.Add(comboBoxFloorLevel);
             Controls.Add(labelFloorHeight);
             Controls.Add(labelFloorLevel);
             Controls.Add(buttonFloorAdd);
-            Margin = new Padding(3, 2, 3, 2);
             Name = "FloorForm";
             Text = "FloorForm";
             ResumeLayout(false);
