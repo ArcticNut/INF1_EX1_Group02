@@ -118,6 +118,7 @@
             // 
             // comboBoxRoomUse
             // 
+            comboBoxRoomUse.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBoxRoomUse.FormattingEnabled = true;
             comboBoxRoomUse.Location = new Point(115, 109);
             comboBoxRoomUse.Name = "comboBoxRoomUse";

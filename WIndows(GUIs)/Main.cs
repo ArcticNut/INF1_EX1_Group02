@@ -247,11 +247,16 @@ namespace INF1_EX1_Group02.Windows_GUIs_
         public void FillBuildingListBox()
         {
             listBoxBuildings.Items.Clear();
+            int index = -1;
 
             foreach (Building b in AppData.Buildings)
             {
                 listBoxBuildings.Items.Add(b);
+                index++;
             }
+
+            // select the latest added building
+            listBoxBuildings.SelectedIndex = index;
         }
 
 
@@ -259,11 +264,14 @@ namespace INF1_EX1_Group02.Windows_GUIs_
         {
             listBoxFloors.Items.Clear();
             if (building == null) return;
+            int index = -1;
 
             foreach (Floor floor in building.Floors)
             {
                 listBoxFloors.Items.Add(floor);
+                index++;
             }
+            listBoxFloors.SelectedIndex = index;
         }
 
 
@@ -271,12 +279,15 @@ namespace INF1_EX1_Group02.Windows_GUIs_
         {
             listBoxRooms.Items.Clear();
             if (floor == null) return;
+            int index = -1;
 
             // add all rooms of the Floor to the listBox
             foreach (Room room in floor.Rooms)
             {
                 listBoxRooms.Items.Add(room);
+                index++;
             }
+            listBoxRooms.SelectedIndex = index;
         }
 
         private void UpdateBuildingSum(Building building)
