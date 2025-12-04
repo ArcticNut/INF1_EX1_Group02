@@ -67,6 +67,7 @@
             // 
             // comboBoxFloorLevel
             // 
+            comboBoxFloorLevel.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBoxFloorLevel.FormattingEnabled = true;
             comboBoxFloorLevel.Items.AddRange(new object[] { "1", "2", "3", "4", "5", "6", "7", "8", "9" });
             comboBoxFloorLevel.Location = new Point(307, 80);

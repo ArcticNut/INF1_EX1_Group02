@@ -47,6 +47,7 @@ namespace INF1_EX1_Group02.Windows_GUIs_
             {
                 comboBoxRoomUse.Items.Add(use);
             }
+            comboBoxRoomUse.SelectedIndex = 0;
         }
 
         private void buttonRoomAddOK_Click(object sender, EventArgs e)
@@ -73,7 +74,7 @@ namespace INF1_EX1_Group02.Windows_GUIs_
 
             if (comboBoxRoomUse.SelectedItem == null)
             {
-                MessageBox.Show("Please select a Use for the Room.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Please select a Use for the Room. \nIf there are no selectable Uses please add them under Manage Use", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             else
