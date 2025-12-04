@@ -18,13 +18,13 @@ namespace INF1_EX1_Group02.Windows_GUIs_
             _building = building;
         }
 
-        private void buttonOK_Click(object sender, EventArgs e)
+        
+        private void buttonFloorAdd_Click(object sender, EventArgs e)
         {
-
             int level;
             string heightText = textBoxFloorHeight.Text.Trim();
 
-            if (comboBoxFloorLevel.SelectedItem==null)
+            if (comboBoxFloorLevel.SelectedItem == null)
             {
                 MessageBox.Show("Please select a floor.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
