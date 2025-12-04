@@ -97,7 +97,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(555, 357);
+            ClientSize = new Size(555, 497);
             Controls.Add(label3);
             Controls.Add(textBoxFloorHeight);
             Controls.Add(comboBoxFloorLevel);
