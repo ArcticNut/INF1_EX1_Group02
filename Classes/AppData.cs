@@ -23,10 +23,10 @@ namespace INF1_EX1_Group02.Classes
             uses = new List<Use>();
             buildings = new List<Building>();
             // qK value based on Eurocode DIN EN 1991-1-1/NA, Tab 6.1 DE.
-            uses.Add(new Use("office", 3.0));
-            uses.Add(new Use("apartments", 2.0));
-            uses.Add(new Use("restaurants", 3.0));
-            uses.Add(new Use("fitness center", 5.0));
+            uses.Add(new Use("Office", 3.0));
+            uses.Add(new Use("Apartments", 2.0));
+            uses.Add(new Use("Restaurants", 3.0));
+            uses.Add(new Use("Fitness Center", 5.0));
         }
 
 
