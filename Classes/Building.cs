@@ -18,6 +18,7 @@ namespace INF1_EX1_Group02.Classes
 
         private string name;
         private double area;
+        private double costPerCubicMeter;
         private int totFurniture;
         private double totCost;
         private double height;
@@ -29,16 +30,18 @@ namespace INF1_EX1_Group02.Classes
         // -------------------------
         // Constructors
         // -------------------------
-        public Building(string name, double area)
+        public Building(string name, double area, double costPerCubicMeter)
         {
             this.id = Interlocked.Increment(ref nextId);
             this.name = name;
             this.area = area;
+            this.costPerCubicMeter = costPerCubicMeter;
             totFurniture = 0;
             totCost = 0.0;
             height = 0.0;
 
             floors = new List<Floor>();
+            this.costPerCubicMeter = costPerCubicMeter;
         }
 
 
@@ -57,6 +60,12 @@ namespace INF1_EX1_Group02.Classes
         {
             get { return area; }
             set { area = value; }
+        }
+
+        public double CostPerCubicMeter
+        {
+            get { return costPerCubicMeter; }
+            set { costPerCubicMeter = value; }
         }
 
         public int TotFurniture

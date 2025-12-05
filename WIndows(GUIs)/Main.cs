@@ -52,7 +52,7 @@ namespace INF1_EX1_Group02.Windows_GUIs_
             // Clear summaries
             UpdateBuildingSum(null);
             UpdateFloorSummary(null);
-            UpdateRoomSum(null);
+            UpdateRoomSum(null, null);
         }
 
         private void listBoxBuildings_SelectedIndexChanged(object sender, EventArgs e)
@@ -161,7 +161,7 @@ namespace INF1_EX1_Group02.Windows_GUIs_
             }
             double availableArea = selectedBuilding.Area - selectedFloor.CalcSpace();
 
-            new RoomForm(selectedFloor, availableArea).ShowDialog();
+            new RoomForm(selectedBuilding, selectedFloor, availableArea).ShowDialog();
             FillListBoxRoom(selectedFloor);
             UpdateFloorSummary(selectedFloor);
             UpdateBuildingSum(selectedBuilding);
@@ -194,7 +194,7 @@ namespace INF1_EX1_Group02.Windows_GUIs_
             // Update Information
             FillListBoxRoom(selectedFloor);
             listBoxRooms.SelectedIndex = index - 1;
-            UpdateRoomSum(null);
+            UpdateRoomSum(null, null);
             UpdateFloorSummary(selectedFloor);
             UpdateBuildingSum(listBoxBuildings.SelectedItem as Building);
         }
@@ -212,24 +212,26 @@ namespace INF1_EX1_Group02.Windows_GUIs_
             }
             double availableArea = selectedBuilding.Area - selectedFloor.CalcSpace();
 
-            new RoomForm(selectedFloor, availableArea, selectedRoom).ShowDialog();
-            UpdateRoomSum(selectedRoom);
+            new RoomForm(selectedBuilding, selectedFloor, availableArea, selectedRoom).ShowDialog();
+            UpdateRoomSum(selectedBuilding, selectedRoom);
             UpdateFloorSummary(selectedFloor);
             UpdateBuildingSum(selectedBuilding);
         }
 
         private void listBoxRooms_SelectedIndexChanged(object sender, EventArgs e)
         {
+            Building selectedBuilding = listBoxBuildings.SelectedItem as Building;
             Room selectedRoom = listBoxRooms.SelectedItem as Room;
             if (selectedRoom != null)
             {
-                UpdateRoomSum(selectedRoom);
+                UpdateRoomSum(selectedBuilding, selectedRoom);
             }
         }
 
         private void buttonRoomAddFurniture_Click(object sender, EventArgs e)
         {
             Room selectedRoom = listBoxRooms.SelectedItem as Room;
+            Building selectedBuilding = listBoxBuildings.SelectedItem as Building;
             if (selectedRoom != null)
             {
                 new FurnitureForm(selectedRoom).ShowDialog();
@@ -239,7 +241,7 @@ namespace INF1_EX1_Group02.Windows_GUIs_
                 MessageBox.Show("Please select a room to add furniture to.", "No Room Selected", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
 
-            UpdateRoomSum(selectedRoom);
+            UpdateRoomSum(selectedBuilding, selectedRoom);
         }
         private void buttonManageUses_Click(object sender, EventArgs e)
         {
@@ -308,6 +310,7 @@ namespace INF1_EX1_Group02.Windows_GUIs_
             // Build the summary text
             string summary = "Building Summary:" + Environment.NewLine +
                              $"Heigth: {Math.Round(building.Height,2)}" + Environment.NewLine +
+                             $"Concrete Cost: {Math.Round(building.CostPerCubicMeter,2)} €/m³" + Environment.NewLine +
                              $"Total Cost: {Math.Round(building.TotCost,2)} €" + Environment.NewLine +
                              $"Total Amount of Furniture: {building.TotFurniture}";
 
@@ -334,7 +337,7 @@ namespace INF1_EX1_Group02.Windows_GUIs_
             textBoxFloorSum.Text = summary;
         }
 
-        private void UpdateRoomSum(Room room)
+        private void UpdateRoomSum( Building building, Room room)
         {
             if (room == null)
             {
@@ -343,7 +346,7 @@ namespace INF1_EX1_Group02.Windows_GUIs_
             }
 
             room.CalcLoad();
-            room.CalcRoomCost();
+            room.CalcRoomCost(building);
             room.CalcSlabVol();
 
             string summary = "Room Summary:" + Environment.NewLine +

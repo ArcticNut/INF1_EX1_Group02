@@ -78,8 +78,9 @@ namespace INF1_EX1_Group02.Classes
                 {
                     string name = bEl.GetProperty("Name").GetString() ?? string.Empty;
                     double area = bEl.GetProperty("Area").GetDouble();
+                    double costPerCubicMeter = bEl.GetProperty("CostPerCubicMeter").GetDouble();
 
-                    var building = new Building(name, area);
+                    var building = new Building(name, area, costPerCubicMeter);
                     AppData.Buildings.Add(building);
 
                     if (bEl.TryGetProperty("Floors", out JsonElement floorsProp)
@@ -127,7 +128,7 @@ namespace INF1_EX1_Group02.Classes
                                     if (roomUse == null)
                                         roomUse = AppData.Uses.FirstOrDefault();
 
-                                    var room = new Room(roomNr, rArea, roomUse!, slabThickness);
+                                    var room = new Room(roomNr, rArea, roomUse!, slabThickness, building);
 
                                     // Furnitures ($values array)
                                     if (rEl.TryGetProperty("Furnitures", out JsonElement furnProp)

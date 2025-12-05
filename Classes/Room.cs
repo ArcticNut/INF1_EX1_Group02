@@ -24,7 +24,7 @@ namespace INF1_EX1_Group02.Classes
         private double load;
 
         //Constructor
-        public Room(string roomNr, double area,  Use use, double slabThickness)
+        public Room(string roomNr, double area,  Use use, double slabThickness, Building building)
         {
             this.id = Interlocked.Increment(ref nextId);
             this.roomNr = roomNr;
@@ -33,7 +33,7 @@ namespace INF1_EX1_Group02.Classes
             this.furnitures = new List<Furniture>();
             this.slabThickness = slabThickness;
             CalcSlabVol();
-            CalcRoomCost();
+            CalcRoomCost(building);
             CalcLoad();
         }
 
@@ -53,9 +53,13 @@ namespace INF1_EX1_Group02.Classes
         {
             slabVol = area * slabThickness;
         }
-        public void CalcRoomCost()
+        public void CalcRoomCost(Building building)
         {
-            double costPerCubicMeter = 150; // €/m² assumed cost of concrete need to research a refernce
+            if (building == null)
+            {
+                throw new ArgumentNullException(nameof(building), "Building cannot be null when calculating room cost.");
+            }
+            double costPerCubicMeter = building.CostPerCubicMeter;
             CalcSlabVol();
             cost = slabVol * costPerCubicMeter;
         }

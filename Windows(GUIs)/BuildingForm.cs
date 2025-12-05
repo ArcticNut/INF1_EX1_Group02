@@ -22,7 +22,8 @@ namespace INF1_EX1_Group02.Windows_GUIs_
         {
             string name = textBoxName.Text.Trim();
             string areaText = textBoxArea.Text.Trim();
-            string FloorCountText = textBoxBuildingFloors.Text.Trim();
+            string floorCountText = textBoxBuildingFloors.Text.Trim();
+            string concreteCostText = textBoxConcreteCost.Text.Trim();
 
             if (string.IsNullOrWhiteSpace(name))
             {
@@ -38,13 +39,20 @@ namespace INF1_EX1_Group02.Windows_GUIs_
             }
 
             int floorCount;
-            if (!int.TryParse(FloorCountText, out floorCount) || floorCount <= 0)
+            if (!int.TryParse(floorCountText, out floorCount) || floorCount <= 0)
             {
                 MessageBox.Show("Please enter a valid number of floors. \nnumber of floors must be positive.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            Building newBuilding = new Building(name, area);
+            double concreteCost;
+            if (!double.TryParse(concreteCostText, out concreteCost) || concreteCost <= 0)
+            {
+                MessageBox.Show("Please enter a valid concrete cost. \nconcrete cost must be positive.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            Building newBuilding = new Building(name, area, concreteCost);
             AppData.Buildings.Add(newBuilding);
 
             this.Close();

@@ -16,14 +16,16 @@ namespace INF1_EX1_Group02.Windows_GUIs_
     {
         // Make it possible to distinguish between Add and Edit
         private Room roomToEdit; // null = Add, not null = Edit
+        private Building building;
         private Floor floor;
         private double availableArea;
 
-        public RoomForm(Floor floor, double availableArea, Room room = null)
+        public RoomForm(Building building, Floor floor, double availableArea, Room room = null)
         {
             InitializeComponent();
             FillComboBoxRoomUse();
             roomToEdit = room;
+            this.building = building;
             this.floor = floor;
             this.availableArea = availableArea;
 
@@ -106,6 +108,9 @@ namespace INF1_EX1_Group02.Windows_GUIs_
                 roomToEdit.Area = area;
                 roomToEdit.Use = use;
                 roomToEdit.SlabThickness = slabThickness;
+                roomToEdit.CalcSlabVol();
+                roomToEdit.CalcRoomCost(building);
+                roomToEdit.CalcLoad();
             }
             else
             {
@@ -116,7 +121,7 @@ namespace INF1_EX1_Group02.Windows_GUIs_
                     return;
                 }
                 // Add new Room
-                Room newRoom = new Room(roomNr, area, use, slabThickness);
+                Room newRoom = new Room(roomNr, area, use, slabThickness, building);
                 floor.Rooms.Add(newRoom);
             }
 

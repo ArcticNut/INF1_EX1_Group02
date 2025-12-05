@@ -36,6 +36,9 @@
             labelBuildingAreaUnit = new Label();
             label1 = new Label();
             textBoxBuildingFloors = new TextBox();
+            label2 = new Label();
+            textBoxConcreteCost = new TextBox();
+            label3 = new Label();
             SuspendLayout();
             // 
             // textBoxName
@@ -44,6 +47,7 @@
             textBoxName.Name = "textBoxName";
             textBoxName.Size = new Size(153, 27);
             textBoxName.TabIndex = 0;
+            textBoxName.TextAlign = HorizontalAlignment.Right;
             // 
             // textBoxArea
             // 
@@ -51,10 +55,11 @@
             textBoxArea.Name = "textBoxArea";
             textBoxArea.Size = new Size(153, 27);
             textBoxArea.TabIndex = 1;
+            textBoxArea.TextAlign = HorizontalAlignment.Right;
             // 
             // buttonAddBuildingOK
             // 
-            buttonAddBuildingOK.Location = new Point(183, 155);
+            buttonAddBuildingOK.Location = new Point(183, 212);
             buttonAddBuildingOK.Name = "buttonAddBuildingOK";
             buttonAddBuildingOK.Size = new Size(94, 29);
             buttonAddBuildingOK.TabIndex = 2;
@@ -104,12 +109,43 @@
             textBoxBuildingFloors.Name = "textBoxBuildingFloors";
             textBoxBuildingFloors.Size = new Size(153, 27);
             textBoxBuildingFloors.TabIndex = 7;
+            textBoxBuildingFloors.TextAlign = HorizontalAlignment.Right;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(16, 144);
+            label2.Name = "label2";
+            label2.Size = new Size(72, 40);
+            label2.TabIndex = 8;
+            label2.Text = "Concrete \r\nCost:";
+            // 
+            // textBoxConcreteCost
+            // 
+            textBoxConcreteCost.Location = new Point(94, 154);
+            textBoxConcreteCost.Name = "textBoxConcreteCost";
+            textBoxConcreteCost.Size = new Size(153, 27);
+            textBoxConcreteCost.TabIndex = 9;
+            textBoxConcreteCost.Text = "150";
+            textBoxConcreteCost.TextAlign = HorizontalAlignment.Right;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(247, 157);
+            label3.Name = "label3";
+            label3.Size = new Size(42, 20);
+            label3.TabIndex = 10;
+            label3.Text = "€/m³";
             // 
             // BuildingForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(289, 207);
+            ClientSize = new Size(289, 253);
+            Controls.Add(label3);
+            Controls.Add(textBoxConcreteCost);
+            Controls.Add(label2);
             Controls.Add(textBoxBuildingFloors);
             Controls.Add(label1);
             Controls.Add(labelBuildingAreaUnit);
@@ -134,5 +170,8 @@
         private Label labelBuildingAreaUnit;
         private Label label1;
         private TextBox textBoxBuildingFloors;
+        private Label label2;
+        private TextBox textBoxConcreteCost;
+        private Label label3;
     }
 }
