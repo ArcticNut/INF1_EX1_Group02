@@ -1,6 +1,4 @@
-using INF1_EX1_Group02.Windows_GUIs_;
 using INF1_EX1_Group02.Classes;
-using System.Windows.Forms;
 
 namespace INF1_EX1_Group02.Windows_GUIs_
 {
@@ -306,11 +304,13 @@ namespace INF1_EX1_Group02.Windows_GUIs_
             building.totalCost();
             building.totalFurniture();
             building.totalHeight();
+            double totalSlabVolume = building.totalSlabVolume();
 
             // Build the summary text
             string summary = "Building Summary:" + Environment.NewLine +
                              $"Heigth: {Math.Round(building.Height,2)}" + Environment.NewLine +
                              $"Concrete Cost: {Math.Round(building.CostPerCubicMeter,2)} €/m³" + Environment.NewLine +
+                             $"Total Slab Volume: {Math.Round(totalSlabVolume,2)} m³" + Environment.NewLine +
                              $"Total Cost: {Math.Round(building.TotCost,2)} €" + Environment.NewLine +
                              $"Total Amount of Furniture: {building.TotFurniture}";
 

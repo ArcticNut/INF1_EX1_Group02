@@ -1,6 +1,4 @@
-﻿using System;
-using System.Windows.Forms;
-using INF1_EX1_Group02.Classes;
+﻿using INF1_EX1_Group02.Classes;
 
 namespace INF1_EX1_Group02.Windows_GUIs_
 {

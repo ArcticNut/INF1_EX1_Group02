@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace INF1_EX1_Group02.Classes
+﻿namespace INF1_EX1_Group02.Classes
 {
     public class Building
     {
@@ -58,7 +52,6 @@ namespace INF1_EX1_Group02.Classes
         public double CostPerCubicMeter
         {
             get { return costPerCubicMeter; }
-            set { costPerCubicMeter = value; }
         }
 
         public int TotFurniture
@@ -121,8 +114,11 @@ namespace INF1_EX1_Group02.Classes
 
         public double totalSlabVolume()
         {
-            //sum slab volume for all floor (using the method from floor class)
             double totVol = 0.0;
+            foreach (Floor floor in floors)
+            {
+                totVol += floor.ClacTotalslabVolume();
+            }
             return totVol;
         }
 

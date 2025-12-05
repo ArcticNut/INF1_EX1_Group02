@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿
 namespace INF1_EX1_Group02.Classes
 {
     // This class is added to save a preset of data for the appliation

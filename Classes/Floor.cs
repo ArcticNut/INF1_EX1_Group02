@@ -1,13 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml.Linq;
-
-namespace INF1_EX1_Group02.Classes
+﻿namespace INF1_EX1_Group02.Classes
 {
-    //Nida
     public class Floor
     {
         // ------- Attributes -------
