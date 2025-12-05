@@ -83,6 +83,17 @@ namespace INF1_EX1_Group02.Classes
             return sum;
         }
 
+        // Calculate used space for the floor
+        public double CalcSpace()
+        {
+            double usedArea = 0.0;
+            foreach (Room room in rooms)
+            {
+                usedArea += room.Area;
+            }
+            return usedArea;
+        }
+
         public override string ToString()
         {
             return level.ToString() + ". Floor";

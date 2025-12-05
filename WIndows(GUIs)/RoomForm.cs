@@ -17,13 +17,15 @@ namespace INF1_EX1_Group02.Windows_GUIs_
         // Make it possible to distinguish between Add and Edit
         private Room roomToEdit; // null = Add, not null = Edit
         private Floor floor;
+        private double availableArea;
 
-        public RoomForm(Floor floor, Room room = null)
+        public RoomForm(Floor floor, double availableArea, Room room = null)
         {
             InitializeComponent();
             FillComboBoxRoomUse();
             roomToEdit = room;
             this.floor = floor;
+            this.availableArea = availableArea;
 
             if (roomToEdit != null)
             {
@@ -38,6 +40,7 @@ namespace INF1_EX1_Group02.Windows_GUIs_
             {
                 Text = "Add Room";
             }
+
         }
 
         private void FillComboBoxRoomUse()
@@ -90,6 +93,13 @@ namespace INF1_EX1_Group02.Windows_GUIs_
 
             if (roomToEdit != null)
             {
+                availableArea = availableArea + roomToEdit.Area;
+                if (area > availableArea)
+                {
+                    MessageBox.Show($"The entered area exceeds the available area of {availableArea} m² on this floor. \nPlease enter a smaller area.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
                 // Edit existing Room
                 roomToEdit.RoomNr = roomNr;
                 roomToEdit.Area = area;
@@ -97,7 +107,12 @@ namespace INF1_EX1_Group02.Windows_GUIs_
                 roomToEdit.SlabThickness = slabThickness;
             }
             else
-            {
+            {   
+                if (area > availableArea)
+                {
+                    MessageBox.Show($"The entered area exceeds the available area of {availableArea} m² on this floor. \nPlease enter a smaller area.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
                 // Add new Room
                 Room newRoom = new Room(roomNr, area, use, slabThickness);
                 floor.Rooms.Add(newRoom);

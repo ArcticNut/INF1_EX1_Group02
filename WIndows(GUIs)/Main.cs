@@ -151,16 +151,20 @@ namespace INF1_EX1_Group02.Windows_GUIs_
 
         private void buttonRoomsAdd_Click(object sender, EventArgs e)
         {
-            if (listBoxFloors.SelectedItem == null)
+            Floor selectedFloor = listBoxFloors.SelectedItem as Floor;
+            Building selectedBuilding = listBoxBuildings.SelectedItem as Building;
+
+            if (selectedFloor == null)
             {
                 MessageBox.Show("Please select the floor to which you want to add a room.", "No Floor Selected", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            Floor selectedFloor = listBoxFloors.SelectedItem as Floor;
-            new RoomForm(selectedFloor).ShowDialog();
+            double availableArea = selectedBuilding.Area - selectedFloor.CalcSpace();
+
+            new RoomForm(selectedFloor, availableArea).ShowDialog();
             FillListBoxRoom(selectedFloor);
             UpdateFloorSummary(selectedFloor);
-            UpdateBuildingSum(listBoxBuildings.SelectedItem as Building);
+            UpdateBuildingSum(selectedBuilding);
         }
 
         private void buttonRoomsDelete_Click(object sender, EventArgs e)
@@ -197,24 +201,21 @@ namespace INF1_EX1_Group02.Windows_GUIs_
 
         private void buttonRoomsEdit_Click(object sender, EventArgs e)
         {
-            if (listBoxFloors.SelectedItem == null)
-            {
-                MessageBox.Show("Please select the floor on which you want to edit a room.", "No Floor Selected", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
+            Building selectedBuilding = listBoxBuildings.SelectedItem as Building;
+            Floor selectedFloor = listBoxFloors.SelectedItem as Floor;
+            Room selectedRoom = listBoxRooms.SelectedItem as Room;
 
-            if (listBoxRooms.SelectedItem == null)
+            if (selectedRoom == null)
             {
                 MessageBox.Show("Please select a room to edit.", "No Room Selected", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+            double availableArea = selectedBuilding.Area - selectedFloor.CalcSpace();
 
-            Floor selectedFloor = listBoxFloors.SelectedItem as Floor;
-            Room selectedRoom = listBoxRooms.SelectedItem as Room;
-            new RoomForm(selectedFloor, selectedRoom).ShowDialog();
+            new RoomForm(selectedFloor, availableArea, selectedRoom).ShowDialog();
             UpdateRoomSum(selectedRoom);
             UpdateFloorSummary(selectedFloor);
-            UpdateBuildingSum(listBoxBuildings.SelectedItem as Building);
+            UpdateBuildingSum(selectedBuilding);
         }
 
         private void listBoxRooms_SelectedIndexChanged(object sender, EventArgs e)
