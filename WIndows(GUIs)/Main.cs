@@ -307,8 +307,8 @@ namespace INF1_EX1_Group02.Windows_GUIs_
 
             // Build the summary text
             string summary = "Building Summary:" + Environment.NewLine +
-                             $"Heigth: {building.Height}" + Environment.NewLine +
-                             $"Total Cost: {building.TotCost} €" + Environment.NewLine +
+                             $"Heigth: {Math.Round(building.Height,2)}" + Environment.NewLine +
+                             $"Total Cost: {Math.Round(building.TotCost,2)} €" + Environment.NewLine +
                              $"Total Amount of Furniture: {building.TotFurniture}";
 
             textBoxBuildingSum.Text = summary;
@@ -324,7 +324,7 @@ namespace INF1_EX1_Group02.Windows_GUIs_
             }
 
             // take the calculations from the Floor class
-            double totalCost = floor.CalcTotalCost();
+            double totalCost = Math.Round(floor.CalcTotalCost(),2);
             int totalFurniture = floor.CalcTotFurniture();
 
             string summary = "Floor Summary:" + Environment.NewLine +
@@ -348,11 +348,11 @@ namespace INF1_EX1_Group02.Windows_GUIs_
 
             string summary = "Room Summary:" + Environment.NewLine +
                 $"Room Nr.: {room.RoomNr}" + Environment.NewLine +
-                $"Area: {room.Area.ToString()} m²" + Environment.NewLine +
+                $"Area: {Math.Round(room.Area,2)} m²" + Environment.NewLine +
                 $"Use: {room.Use.ToString()}" + Environment.NewLine +
-                $"Load: {room.Load.ToString()} kN/m²" + Environment.NewLine +
-                $"Slab Volume: {room.SlabVol.ToString()} m³" + Environment.NewLine +
-                $"Concrete Cost: {room.Cost.ToString()} €" + Environment.NewLine +
+                $"Load: {Math.Round(room.Load,2)} kN/m²" + Environment.NewLine +
+                $"Slab Volume: {Math.Round(room.SlabVol,2)} m³" + Environment.NewLine +
+                $"Concrete Cost: {Math.Round(room.Cost,2)} €" + Environment.NewLine +
                 "Furniture:" + Environment.NewLine;
             foreach (Furniture furniture in room.Furnitures)
             {

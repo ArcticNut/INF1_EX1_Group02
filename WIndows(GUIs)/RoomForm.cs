@@ -92,7 +92,8 @@ namespace INF1_EX1_Group02.Windows_GUIs_
             }
 
             if (roomToEdit != null)
-            {
+            {   
+                //check Area constraints
                 availableArea = availableArea + roomToEdit.Area;
                 if (area > availableArea)
                 {
@@ -107,7 +108,8 @@ namespace INF1_EX1_Group02.Windows_GUIs_
                 roomToEdit.SlabThickness = slabThickness;
             }
             else
-            {   
+            {
+                //check Area constraints
                 if (area > availableArea)
                 {
                     MessageBox.Show($"The entered area exceeds the available area of {availableArea} m² on this floor. \nPlease enter a smaller area.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
