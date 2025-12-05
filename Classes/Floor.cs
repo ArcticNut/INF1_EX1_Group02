@@ -11,11 +11,7 @@ namespace INF1_EX1_Group02.Classes
     public class Floor
     {
         // ------- Attributes -------
-        // Thread-safe id generation
-        private static int nextId = 0;
-
-        private readonly int id;
-        private int level;                 //  0 = ground floor, 1 = first floor
+        private int level;                 // 1 = first floor/ground floor
         private double height;             // storey height in m
         private List<Room> rooms;
 
@@ -24,16 +20,12 @@ namespace INF1_EX1_Group02.Classes
 
         public Floor(int level, double height)
         {
-            this.id = Interlocked.Increment(ref nextId);
             this.level = level;
             this.height = height;
             this.rooms = new List<Room>();
         }
 
         // ------- Getters and Setters (Properties) -------
-
-        public int Id { get { return id; } }
-
         public int Level { get { return level; } set { level = value; } }
 
         public double Height { get { return height; } set { height = value; } }

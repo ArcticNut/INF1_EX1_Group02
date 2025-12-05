@@ -10,10 +10,6 @@ namespace INF1_EX1_Group02.Classes
     public class Room
     {
         //Attributes
-        // Thread-safe id generation
-        private static int nextId = 0;
-
-        private readonly int id;
         private string roomNr;
         private double area;
         private Use use;
@@ -26,7 +22,6 @@ namespace INF1_EX1_Group02.Classes
         //Constructor
         public Room(string roomNr, double area,  Use use, double slabThickness, Building building)
         {
-            this.id = Interlocked.Increment(ref nextId);
             this.roomNr = roomNr;
             this.area = area;
             this.use = use;
@@ -38,7 +33,6 @@ namespace INF1_EX1_Group02.Classes
         }
 
         //Getters and Setters
-        public int Id { get { return id; } }
         public string RoomNr { get { return roomNr; } set { roomNr = value; } }
         public double Area { get { return area; } set { area = value; } }
         public Use Use { get { return use; } set { use = value; } }
