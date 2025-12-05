@@ -1,5 +1,6 @@
 using INF1_EX1_Group02.Windows_GUIs_;
 using INF1_EX1_Group02.Classes;
+using System.Windows.Forms;
 
 namespace INF1_EX1_Group02.Windows_GUIs_
 {
@@ -53,7 +54,7 @@ namespace INF1_EX1_Group02.Windows_GUIs_
             UpdateFloorSummary(null);
             UpdateRoomSum(null);
         }
-        
+
         private void listBoxBuildings_SelectedIndexChanged(object sender, EventArgs e)
         {
             listBoxFloors.Items.Clear();
@@ -168,10 +169,10 @@ namespace INF1_EX1_Group02.Windows_GUIs_
             int index = listBoxRooms.SelectedIndex;
             Floor selectedFloor = listBoxFloors.SelectedItem as Floor;
 
-            if (selectedRoom == null) 
+            if (selectedRoom == null)
             {
                 MessageBox.Show("Please select a room to delete.", "No Room Selected", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return; 
+                return;
             }
 
             // Confirm Deletion
@@ -201,14 +202,14 @@ namespace INF1_EX1_Group02.Windows_GUIs_
                 MessageBox.Show("Please select the floor on which you want to edit a room.", "No Floor Selected", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            
+
             if (listBoxRooms.SelectedItem == null)
-            { 
+            {
                 MessageBox.Show("Please select a room to edit.", "No Room Selected", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            Floor selectedFloor = listBoxFloors.SelectedItem as Floor;           
+            Floor selectedFloor = listBoxFloors.SelectedItem as Floor;
             Room selectedRoom = listBoxRooms.SelectedItem as Room;
             new RoomForm(selectedFloor, selectedRoom).ShowDialog();
             UpdateRoomSum(selectedRoom);
@@ -360,5 +361,38 @@ namespace INF1_EX1_Group02.Windows_GUIs_
             textBoxRoomSum.Text = summary;
         }
 
+        private void buttonExport_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            DialogResult result = saveFileDialog.ShowDialog();
+            saveFileDialog.Title = "Export Data";
+            saveFileDialog.InitialDirectory = Directory.GetCurrentDirectory();
+            saveFileDialog.Filter = "JSON files (*.json)|*.json|All files (*.*)|*.*";
+            
+            if (result == DialogResult.OK) {
+                string path = saveFileDialog.FileName;
+                Serializer.ExportJSON(path);
+                MessageBox.Show("Export Successful!", "Export", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void buttonImport_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog(); 
+            DialogResult result = openFileDialog.ShowDialog();
+            openFileDialog.Title = "Import Data";
+            openFileDialog.InitialDirectory = Directory.GetCurrentDirectory();
+            openFileDialog.Filter = "JSON files (*.json)|*.json";
+
+            if (result == DialogResult.OK)
+            {
+                string path = openFileDialog.FileName;
+                Serializer.ImportJSON(path);
+                FillBuildingListBox();
+                FillListBoxFloor(listBoxBuildings.SelectedItem as Building);
+                FillListBoxRoom(listBoxFloors.SelectedItem as Floor);
+                MessageBox.Show("Import Successful!", "Import", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
     }
 }

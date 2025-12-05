@@ -46,6 +46,8 @@
             textBoxBuildingSum = new TextBox();
             textBoxFloorSum = new TextBox();
             textBoxRoomSum = new TextBox();
+            buttonExport = new Button();
+            buttonImport = new Button();
             SuspendLayout();
             // 
             // listBoxBuildings
@@ -235,11 +237,33 @@
             textBoxRoomSum.Size = new Size(249, 211);
             textBoxRoomSum.TabIndex = 20;
             // 
+            // buttonExport
+            // 
+            buttonExport.Location = new Point(721, 12);
+            buttonExport.Name = "buttonExport";
+            buttonExport.Size = new Size(94, 29);
+            buttonExport.TabIndex = 21;
+            buttonExport.Text = "Export";
+            buttonExport.UseVisualStyleBackColor = true;
+            buttonExport.Click += buttonExport_Click;
+            // 
+            // buttonImport
+            // 
+            buttonImport.Location = new Point(621, 12);
+            buttonImport.Name = "buttonImport";
+            buttonImport.Size = new Size(94, 29);
+            buttonImport.TabIndex = 22;
+            buttonImport.Text = "Import";
+            buttonImport.UseVisualStyleBackColor = true;
+            buttonImport.Click += buttonImport_Click;
+            // 
             // Main
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(833, 606);
+            Controls.Add(buttonImport);
+            Controls.Add(buttonExport);
             Controls.Add(textBoxRoomSum);
             Controls.Add(textBoxFloorSum);
             Controls.Add(textBoxBuildingSum);
@@ -284,5 +308,7 @@
         private TextBox textBoxBuildingSum;
         private TextBox textBoxFloorSum;
         private TextBox textBoxRoomSum;
+        private Button buttonExport;
+        private Button buttonImport;
     }
 }
