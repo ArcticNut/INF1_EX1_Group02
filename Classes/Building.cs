@@ -122,6 +122,19 @@
             return totVol;
         }
 
+        // Total concrete volume of the whole building
+        public double CalcTotalVolume()
+        {
+            double totVol = 0.0;
+            foreach (Floor floor in floors)
+            {
+                // FLOOR concrete volume
+                totVol += floor.CalcTotalVolume();
+            }
+            return totVol;
+        }
+
+
         public override string ToString()
         {
             return name;

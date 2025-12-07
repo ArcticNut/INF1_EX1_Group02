@@ -306,6 +306,8 @@ namespace INF1_EX1_Group02.Windows_GUIs_
             building.totalHeight();
             double totalSlabVolume = building.totalSlabVolume();
 
+            double totalSlabVol = building.CalcTotalVolume();
+
             // Build the summary text
             string summary = "Building Summary:" + Environment.NewLine +
                              $"Heigth: {Math.Round(building.Height,2)}" + Environment.NewLine +
@@ -329,10 +331,13 @@ namespace INF1_EX1_Group02.Windows_GUIs_
             // take the calculations from the Floor class
             double totalCost = Math.Round(floor.CalcTotalCost(),2);
             int totalFurniture = floor.CalcTotFurniture();
+            double totalSlabVolume = Math.Round(floor.CalcTotalVolume(), 2);   // <<< new
 
             string summary = "Floor Summary:" + Environment.NewLine +
-                             $"Total Cost: {totalCost} €" + Environment.NewLine +
-                             $"Total Amount of Furniture: {totalFurniture}";
+                             $"Total Amount of Furniture: {totalFurniture}" + Environment.NewLine+
+                             $"Total Slab Volume: {totalSlabVolume} m³"+ Environment.NewLine +
+                             $"Total Cost: {totalCost} €" 
+                             ;
 
             textBoxFloorSum.Text = summary;
         }

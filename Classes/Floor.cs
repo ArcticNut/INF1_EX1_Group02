@@ -56,6 +56,14 @@
             return sum;
         }
 
+        // concrete volume for this floor
+        public double CalcTotalVolume()
+        {
+            // in this model concrete volume = slab volume
+            return ClacTotalslabVolume();
+        }
+
+
         // total concrete cost of all rooms on this floor
         public double CalcTotalCost()
         {
