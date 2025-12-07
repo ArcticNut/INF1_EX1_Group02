@@ -78,6 +78,7 @@ namespace INF1_EX1_Group02.Classes
                     var building = new Building(name, area, costPerCubicMeter);
                     AppData.Buildings.Add(building);
 
+                    // floors if the building
                     if (bEl.TryGetProperty("Floors", out JsonElement floorsProp)
                         && floorsProp.TryGetProperty("$values", out JsonElement floorsArray))
                     {
@@ -89,6 +90,7 @@ namespace INF1_EX1_Group02.Classes
                             var floor = new Floor(level, height);
                             building.Floors.Add(floor);
 
+                            //rooms  of the floor
                             if (fEl.TryGetProperty("Rooms", out JsonElement roomsProp)
                                 && roomsProp.TryGetProperty("$values", out JsonElement roomsArray))
                             {
