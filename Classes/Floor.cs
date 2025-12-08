@@ -46,7 +46,7 @@
         }
 
         // total slab volume for this floor
-        public double ClacTotalslabVolume()
+        public double ClacTotalSlabVolume()
         {
             double sum = 0.0;
             foreach (Room room in rooms)

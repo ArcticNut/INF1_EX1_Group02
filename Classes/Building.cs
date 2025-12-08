@@ -77,7 +77,7 @@
         // -------------------------
         // Methods 
         // -------------------------
-        public void totalFurniture()
+        public void ClacTotalFurniture()
         {
             int sum = 0;
 
@@ -89,7 +89,7 @@
             totFurniture = sum;
         }
 
-        public void totalCost()
+        public void ClacTotalCost()
         {
             double sum = 0.0;
 
@@ -101,7 +101,7 @@
             totCost = sum;
         }
 
-        public void totalHeight()
+        public void ClacTotalHeight()
         {
             double sum = 0.0;
             foreach (Floor floor in floors)
@@ -112,12 +112,12 @@
             height = sum;
         }
 
-        public double totalSlabVolume()
+        public double ClacTotalSlabVolume()
         {
             double totVol = 0.0;
             foreach (Floor floor in floors)
             {
-                totVol += floor.ClacTotalslabVolume();
+                totVol += floor.ClacTotalSlabVolume();
             }
             return totVol;
         }

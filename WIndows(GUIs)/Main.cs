@@ -301,10 +301,10 @@ namespace INF1_EX1_Group02.Windows_GUIs_
             }
 
             // Recalculate totals
-            building.totalCost();
-            building.totalFurniture();
-            building.totalHeight();
-            double totalSlabVolume = building.totalSlabVolume();
+            building.ClacTotalCost();
+            building.ClacTotalFurniture();
+            building.ClacTotalHeight();
+            double totalSlabVolume = building.ClacTotalSlabVolume();
 
             // Build the summary text
             string summary = "Building Summary:" + Environment.NewLine +
