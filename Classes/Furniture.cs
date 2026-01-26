@@ -4,25 +4,28 @@
     {
         // Define Attributes
         private string type;
-        private int amount;
+        private string id;
+        private string levelId;
+        private string roomId;
 
         // Constructors
-        public Furniture(string type, int amount)
+        public Furniture()
+        {
+        }
+        // Constructors
+        public Furniture(string type, string id, string levelId, string roomId)
         {
             this.type = type;
-            this.amount = amount;
-        }
-        
-        // Getter and Setter
-        public int Amount
-        {
-            get { return amount; }
+            this.id = id;
+            this.levelId = levelId;
+            this.roomId = roomId;
         }
 
-        //Methods
-        public override string ToString()
-        {
-            return type + ": " + amount;
-        }
+        // Define Properties
+        public string Type { get => type; set => type = value; }
+        public string Id { get => id; set => id = value; }
+        public string LevelId { get => levelId; set => levelId = value; }
+        public string RoomId { get => roomId; set => roomId = value; }
+
     }
 }

@@ -1,4 +1,5 @@
 using INF1_EX1_Group02.Classes;
+using System.ComponentModel.Design;
 
 namespace INF1_EX1_Group02.Windows_GUIs_
 {
